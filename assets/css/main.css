@@ -14,7 +14,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    color: #FFFFFF;
+    color: #ca2a2a;
 }
 .box{
     width: 380px;
@@ -70,6 +70,7 @@ body{
     background: rgb(236, 241, 243);
     z-index: 10;
     overflow: hidden;
+    
 }
 
 .button-box{
@@ -101,17 +102,7 @@ body{
     font-weight: 100px;
 }
 
-.social-icons{
-    margin: 30px auto;
-    text-align: center;
-}
-.social-icons img{
-    width: 30px;
-    margin: 0 12px;
-    box-shadow: 0 0 20px 0 #7f7f7f3d;
-    cursor: pointer;
 
-}
 
 .input-group{
     top: 180px;
@@ -119,6 +110,8 @@ body{
     width: 280px;
     transition: .5s;
 }
+
+
 
 .input-field{
     width: 100%;
@@ -138,7 +131,7 @@ body{
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    margin: auto;
+    margin-top: 20px;
     background:linear-gradient(to right,rgb(42, 179, 108),rgb(141, 204, 228));
     border: 0;
     outline: none;
@@ -152,9 +145,12 @@ body{
 span{
     color: rgba(0, 0, 0, 0.667);
     font-size: 12px;
-    bottom: 68px;
+    margin-top: 30px;
     position: absolute;
+
 }
+
+
 #login{
     left: 50px;
 }
