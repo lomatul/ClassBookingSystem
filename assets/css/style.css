@@ -166,7 +166,7 @@ header {
 header .container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items:flex-start;
 }
 
 .navbar-menu-btn {
@@ -223,14 +223,16 @@ header .container {
 
 .hero {
   position: relative;
-  padding: 130px 0 140px;
+  padding: 0px 0 140px;
   z-index: 1;
 }
 
 .hero-content { text-align: left; }
 
 .hero-title,
-.hero-text { margin-bottom: 40px;  margin-right: 50px;}
+.hero-text { margin-bottom: 40px;
+    margin-right: 50px;
+     margin-left: 0px;}
 
 .hero-text {
   font-size: var(--fs-4);
@@ -263,11 +265,11 @@ header .container {
   background:linear-gradient(rgb(76, 174, 83), rgb(94, 167, 187));
   background-position: center;
   background-size: cover;
-  padding: 120px 0;
+  padding: 60px 0;
   text-align: center;
 }
 
-.about-top { margin-bottom: 120px; }
+.about-top { margin-bottom: 60px; }
 
 .about .h2 { color: var(--white); }
 
@@ -331,19 +333,26 @@ header .container {
 
 
 .features {
-  padding: 120px 0;
+  padding: 30px 30px;
   text-align: center;
+  background-color: rgb(177, 222, 222);
+  border-radius: 20px;
+  border: 5px solid rgb(15, 12, 12);
+  box-shadow: 0 0.188em 1.550em rgba(100, 100, 100, 0.8);
+  margin-bottom: 100px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 .features .section-title {
   color: var(--royal-blue-dark);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .features .section-text {
   color: var(--rythm);
   font-size: var(--fs-4);
-  margin-bottom: 120px;
+  margin-bottom: 60px;
 }
 
 .features-item:first-child { margin-bottom: 100px; }
@@ -420,14 +429,15 @@ header .container {
 
 .contact-content { margin-bottom: 50px; }
 
+
 .contact-title {
   color: var(--royal-blue-dark);
   margin-bottom: 60px;
   text-align: center;
-  font-weight: var(--fw-500) !important;
+  font-weight: 500px !important;
 }
 
-.contact-banner img { width: 100%; }
+.contact-banner img { width: 500px; margin-right: 200px; }
 
 .input-wrapper { margin-bottom: 30px; }
 
@@ -664,9 +674,13 @@ footer .logo { margin-bottom: 30px; }
 
   .contact-title { --fs-2: 32px; }
 
-  .contact-banner {
-    max-width: 300px;
+  .contact-banner  {
+    max-width: 700px;
     margin-inline: auto;
+  }
+  .contact-banner img {
+    max-width: 600px;
+    
   }
 
 }
