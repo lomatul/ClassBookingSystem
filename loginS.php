@@ -9,7 +9,7 @@ if(isset($_POST['submitreg'])){
     $depertment=$_POST['dept'];
     $Programe=$_POST['prog'];
     $Batch=$_POST['batch'];
-    $password=$_POST['password'];
+    $password=$_POST['pass'];
 
     $select1="SELECT * FROM cr WHERE ID='$ID'";
     $result1=mysqli_query($conn, $select1);
