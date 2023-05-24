@@ -60,8 +60,8 @@ a { text-decoration: none; }
 a,
 img,
 button,
-span,
 ion-icon,
+span,
 label,
 input,
 textarea { display: block; }
@@ -405,8 +405,12 @@ header .container {
 
 .contact-banner img { width: 500px; margin-right: 200px; }
 
-.input-wrapper { margin-bottom: 30px;  }
+.input-wrapper { margin-bottom: 30px; }
 
+.input-wrapper span{
+  color: red;
+  display: inline;
+}
 .input-label {
   color: var(--oxford-blue);
   font-size: var(--fs-6);
