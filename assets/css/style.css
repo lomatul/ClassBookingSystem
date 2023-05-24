@@ -53,6 +53,109 @@
   
 }
 
+
+.hero1{
+  background: #fcfcfc;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+
+.hero1 h1{
+  text-align: center;
+  padding-top: 80px;
+  font-size: 40px;
+  color: #0b093d;
+}
+
+.slide-row1{
+  display: flex;
+  width: 3200px;
+  transition: 0.5s;
+}
+
+.slide-col1{
+  width: 800px;
+  height: 400px;
+  position: relative;
+}
+
+.user-img1{
+  position: absolute;
+  top:0;
+  right: 0;
+  height: 100%;
+}
+
+.user-img1 img{
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.user-text1{
+  background: #2d3a59;
+  width: 550px;
+  height: 270px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 10px;
+  color: #d3d4d6;
+  padding: 45px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.user-text1 p{
+  font-size:18px ;
+  line-height: 24px;
+}
+
+.user-text1 h3{
+  margin: 35px 0 5px;
+  color: #fff;
+}
+
+.container1{
+  width: 800px;
+  height: 400px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.indicator1{
+  position: absolute;
+  left:50%;
+  transform: translate(-50%);
+  bottom: -50px;
+}
+
+.btn1{
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  margin: 4px;
+  border-radius: 15px;
+  background: #0e1043;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.active{
+  width: 45px;
+}
+
+.testimonial1{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 li { list-style: none; }
 
 a { text-decoration: none; }
@@ -207,9 +310,17 @@ header .container {
   padding: 15px 10px;
   opacity: 0;
   transition: opacity var(--transition);
+  transition: font-size 0.3s, font-weight 0.3s;
 }
 
-.nav-link:is(:hover, :focus) { background: hsla(0, 0%, 100%, 0.2); }
+.nav-link:is( :focus) { background: hsla(0, 0%, 100%, 0.2); }
+
+.nav-link:hover {
+  transform: scale(1.5);
+  transition: 0.2s;
+  background-color: rgb(206, 235, 236);
+  border-radius: 10px;
+}
 
 .navbar.active .nav-link {
   transition-delay: 0.2s;
@@ -217,8 +328,6 @@ header .container {
 }
 
 .navbar .btn-primary { display: none; }
-
-
 
 
 /*hero*/
