@@ -1,38 +1,161 @@
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
+    font-family: 'Acme', sans-serif;
     box-sizing: border-box;
 }
-
-body
-{
-    background-color: skyblue;
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    background: white;
+    color: rgb(33, 12, 67);
     text-align: center;
-    height: 100vh;
+}
+nav{
+    background: #1a1a1a;
+    width: 100%;
+    padding: 10px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 
-input[type="date"]
-{
-    position: relative;
-    width: 300px;
-    height: 60px;
-    padding: 20px;
-    border: 0;
-    background-color: rgb(158, 215, 149);
-    border-radius: 10px;
-    outline: none;
-    font-size: 22px;
-    font-weight: 400px;
-    letter-spacing: 3px;
-    color: rgb(2, 8, 14);
-    text-transform: uppercase;
-    box-shadow: 0 4px 20px rgba(3, 44, 41, 0.226);
+.user-pic{
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
 }
+
+nav ul{
+    width: 100%;
+    text-align: right;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.sub-menu-wrap{
+    position:absolute;
+    top:100%;
+    right: 10%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu{
+max-height: 400px;
+}
+
+.sub-menu{
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info h3{
+    font-weight: 500;
+}
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link p{
+    width: 100%;
+}
+
+.sub-menu-link img{
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+.sub-menu-link span{
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+
+.About{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    font-size: 10px;
+    flex-direction: column;
+   
+
+}
+
+
+.About h1{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.About h3{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.About ul li{
+    list-style: none;
+    font-size: 15px;
+}
+
+.About ul{
+    margin-top: 10px;
+}
+
 table{
-    margin-top: 150px;
-    margin-left: 150px;
+    margin-top: 50px;
+    margin-left: 50px;
     border-spacing: 0;
     float: center;
+    width: 80%;
 }
 
 td{
@@ -51,4 +174,73 @@ td{
 th{
     height: 30px;
     border: 1px solid black;
+}
+
+.search {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 50px;
+    background-color: rgb(109, 184, 237);
+    color: #060101;
+    border-radius: 5px;
+    padding: 5px;
+    border: solid 2px black;
+  }
+
+  input[type="date"]
+  {
+      position: relative;
+      width: 300px;
+      height: 60px;
+      padding: 20px;
+      border: 0;
+      background-color: rgb(158, 215, 149);
+      border-radius: 10px;
+      outline: none;
+      font-size: 22px;
+      font-weight: 400px;
+      letter-spacing: 3px;
+      color: rgb(2, 8, 14);
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px rgba(3, 44, 41, 0.226);
+  }
+.search .icon-search {
+    color: #060101;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+
+.btn {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600px;
+    padding: 10px 40px;
+    border: 1px solid;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+  }
+  
+
+
+@media screen and (max-width: 1068px) {
+    .container{
+        display: table;
+    }
+
+    .box{
+        width: 100%;
+    }
+
+    .About{
+        width: 100%;
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .About h1{
+        text-align: center;
+    }
 }
