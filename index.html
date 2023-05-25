@@ -24,6 +24,8 @@
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -115,7 +117,7 @@
          
 
           <div class="hero-banner">
-            <img src="Classroom.png" alt="shape" class="shape-content">
+            <img src="./assets/images/Classroom.png" alt="shape" class="shape-content">
           </div>
 
         </div>
@@ -174,22 +176,18 @@
 
               <li>
                 <div class="about-card">
-
                   <div class="card-icon">
                     <img src="https://cdn-icons-png.flaticon.com/128/5828/5828065.png" alt="shape" >
-                    
-
                   </div>
-
                   <h3 class="h3 card-title">Easy to use</h3>
-
                   <p class="card-text">
                     The interface has been designed to make sure room availability status is clear and understandable at a glance.
                   </p>
-
                 </div>
               </li>
 
+
+              
               <li>
                 <div class="about-card">
 
@@ -287,6 +285,77 @@
       </section>
 
 
+      <section class="hero1" id="hero1">
+        <div class="hero1">
+          <h1>
+              Reviews
+            </h1>
+            <div class="container1">
+              <div class="indicator1">
+                  <span class="btn1 active"></span>
+                  <span class="btn1"></span>
+                  <span class="btn1"></span>
+                  <span class="btn1"></span>
+              </div>
+              <div class="testimonial1">
+              <div class="slide-row1" id="slide">
+                  <div class="slide-col1">
+                    <div class="user-text1">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, unde dolores ex harum mollitia incidunt dicta, esse omnis praesentium dolorem asperiores illum nesciunt autem facilis veniam porro officiis accusantium vero.</p>
+                        <h3>Sarah</h3>
+                    <p>Zara Inc.</p>
+                  </div>
+                    <div class="user-img1">
+                      <img src="./assets/images/user-2.jpg" alt="">
+        
+                    </div>
+                  </div>
+        
+                  <div class="slide-col1">
+                    <div class="user-text1">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, unde dolores ex harum mollitia incidunt dicta, esse omnis praesentium dolorem asperiores illum nesciunt autem facilis veniam porro officiis accusantium vero.</p>
+                        <h3>Sarah</h3>
+                    <p>Zara Inc.</p>
+                  </div>
+                    <div class="user-img1">
+                      <img src="./assets/images/user-3.jpg" alt="">
+        
+                    </div>
+                  </div>
+        
+                  <div class="slide-col1">
+                    <div class="user-text1">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, unde dolores ex harum mollitia incidunt dicta, esse omnis praesentium dolorem asperiores illum nesciunt autem facilis veniam porro officiis accusantium vero.</p>
+                        <h3>Sarah</h3>
+                    <p>Zara Inc.</p>
+                  </div>
+                    <div class="user-img1">
+                      <img src="./assets/images/user-4.jpg" alt="">
+        
+                    </div>
+                  </div>
+        
+                  <div class="slide-col1">
+                    <div class="user-text1">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, unde dolores ex harum mollitia incidunt dicta, esse omnis praesentium dolorem asperiores illum nesciunt autem facilis veniam porro officiis accusantium vero.</p>
+                        <h3>Sarah</h3>
+                    <p>Zara Inc.</p>
+                  </div>
+                    <div class="user-img1">
+                      <img src="./assets/images/user-5.jpg" alt="">
+        
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      
+      
+      </section>
+
+
+
 
 
 
@@ -295,7 +364,6 @@
     </article>
 
   </main>
-
 
 
 
@@ -313,17 +381,17 @@
           <p class="footer-text">Follow us on</p>
           <ul class="social-list">
             <li>
-              <a href="https://github.com/codewithsadee" class="social-link">
+              <a href="https://github.com" class="social-link">
                 <ion-icon name="logo-github"></ion-icon>
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/codewithsadee" class="social-link">
+              <a href="https://instagram.com" class="social-link">
                 <ion-icon name="logo-instagram"></ion-icon>
               </a>
             </li>
             <li>
-              <a href="https://youtube.com/c/codewithsadee" class="social-link">
+              <a href="https://youtube.com" class="social-link">
                 <ion-icon name="logo-youtube"></ion-icon>
               </a>
             </li>
@@ -384,7 +452,7 @@
 
     <div class="footer-bottom">
       <p class="copyright">
-        &copy; 2022 <a href="#">@BS3</a> All right reserved
+        &copy; 2023 <a href="#">@BS3</a> All right reserved
       </p>
     </div>
 
@@ -416,6 +484,43 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    var btn1 = document.getElementsByClassName("btn1");
+    var slide = document.getElementById("slide");
+    btn1[0].onclick = function(){
+        slide.style.transform ="translateX(0px)";
+        for(i=0; i<4; i++)
+        {
+            btn1[i].classList.remove("active");
+        }
+        this.classList.add("active");
+    }
+    btn1[1].onclick = function(){
+        slide.style.transform ="translateX(-800px)";
+        for(i=0; i<4; i++)
+        {
+            btn1[i].classList.remove("active");
+        }
+        this.classList.add("active");
+    }
+    btn1[2].onclick = function(){
+        slide.style.transform ="translateX(-1600px)";
+        for(i=0; i<4; i++)
+        {
+            btn1[i].classList.remove("active");
+        }
+        this.classList.add("active");
+    }
+    btn1[3].onclick = function(){
+        slide.style.transform ="translateX(-2400px)";
+        for(i=0; i<4; i++)
+        {
+            btn1[i].classList.remove("active");
+        }
+        this.classList.add("active");
+    }
+</script>
 
 </body>
 
