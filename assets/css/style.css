@@ -1,11 +1,7 @@
 
 :root {
 
-<<<<<<< HEAD
-  --maximum-yellow-red: hsl(37, 100%, 68%);
-=======
   --maximum-yellow-red: hsl(143, 79%, 33%);
->>>>>>> lomatul
   --royal-blue-dark: hsl(231, 61%, 22%);
   --silver-chalice: hsl(0, 0%, 70%);
   --oxford-blue: hsl(231, 100%, 8%);
@@ -23,11 +19,7 @@
    * typography
    */
 
-<<<<<<< HEAD
-  --ff-poppins: "Poppins", sans-sarif;
-=======
   --ff-poppins:'Acme', sans-serif;
->>>>>>> lomatul
 
   --fs-1: 25px;
   --fs-2: 23px;
@@ -61,8 +53,6 @@
   
 }
 
-<<<<<<< HEAD
-=======
 
 .hero1{
   background: #fcfcfc;
@@ -166,7 +156,6 @@
   overflow: hidden;
 }
 
->>>>>>> lomatul
 li { list-style: none; }
 
 a { text-decoration: none; }
@@ -174,13 +163,8 @@ a { text-decoration: none; }
 a,
 img,
 button,
-<<<<<<< HEAD
-span,
-ion-icon,
-=======
 ion-icon,
 span,
->>>>>>> lomatul
 label,
 input,
 textarea { display: block; }
@@ -205,11 +189,7 @@ input {
 :focus { outline-offset: 4px; }
 
 html {
-<<<<<<< HEAD
-  font-family: var(--ff-poppins);
-=======
   font-family: 'Acme', sans-serif;;
->>>>>>> lomatul
   scroll-behavior: smooth;
 }
 
@@ -330,11 +310,6 @@ header .container {
   padding: 15px 10px;
   opacity: 0;
   transition: opacity var(--transition);
-<<<<<<< HEAD
-}
-
-.nav-link:is(:hover, :focus) { background: hsla(0, 0%, 100%, 0.2); }
-=======
   transition: font-size 0.3s, font-weight 0.3s;
 }
 
@@ -346,7 +321,6 @@ header .container {
   background-color: rgb(206, 235, 236);
   border-radius: 10px;
 }
->>>>>>> lomatul
 
 .navbar.active .nav-link {
   transition-delay: 0.2s;
@@ -356,11 +330,6 @@ header .container {
 .navbar .btn-primary { display: none; }
 
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> lomatul
 /*hero*/
 
 .hero {
@@ -435,11 +404,6 @@ header .container {
 
 .about-card {
   background: var(--white);
-<<<<<<< HEAD
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
-=======
   padding: 30px;
   border-radius: 12px;
   gap: 20px;
@@ -449,7 +413,6 @@ header .container {
 .about-card:hover {
   transform: scale(1.1);
   outline: 4px solid black;
->>>>>>> lomatul
 }
 
 .card-icon {
@@ -543,11 +506,6 @@ header .container {
 /*contact*/
 
 
-<<<<<<< HEAD
-.contact { margin-bottom: 120px;margin-left: 100px; }
-
-.contact-content { margin-bottom: 50px; }
-=======
 .input-label, .input-field, .btn-primary {
   font-family: 'Acme', sans-serif;
 }
@@ -559,23 +517,10 @@ header .container {
   font-family: 'Acme', sans-serif; }
 
 .contact-content { font-family: 'Acme', sans-serif;margin-bottom: 10px; }
->>>>>>> lomatul
 
 
 .contact-title {
   color: var(--royal-blue-dark);
-<<<<<<< HEAD
-  margin-bottom: 60px;
-  text-align: center;
-  font-weight: 500px !important;
-}
-
-.contact-banner img { width: 500px; margin-right: 200px; }
-
-.input-wrapper { margin-bottom: 30px;  }
-
-.input-label {
-=======
   text-align: center;
   font-size: 35px;
   font-family: 'Acme', sans-serif;
@@ -604,33 +549,22 @@ header .container {
   display: inline;
 }
 .contact-form .input-label {
->>>>>>> lomatul
   color: var(--oxford-blue);
   font-size: var(--fs-6);
   font-weight: var(--fw-600);
   margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
-.input-field {
-=======
 .contact-form .input-field {
->>>>>>> lomatul
   border-bottom: 1px solid var(--platinum);
   padding: 7px 0;
   font-size: var(--fs-6);
 }
 
-<<<<<<< HEAD
-.input-field::placeholder { color: var(--silver-chalice); }
-
-textarea {
-=======
 .contact-form .input-field::placeholder { color: var(--silver-chalice); }
 
 .contact-form textarea {
   font-family: 'Acme', sans-serif;
->>>>>>> lomatul
   max-height: 300px;
   min-height: 100px;
   height: 100px;
@@ -646,11 +580,7 @@ textarea {
 
 footer { background: var(--white-2); }
 
-<<<<<<< HEAD
-.footer-top { padding: 80px 0 50px; }
-=======
 .footer-top { padding: 40px 0 50px; }
->>>>>>> lomatul
 
 .footer-brand { margin-bottom: 20px; }
 

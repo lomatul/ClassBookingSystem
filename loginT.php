@@ -6,7 +6,7 @@ if(isset($_POST['submitreg'])){
     $username=$_POST['name'];
     $ID=$_POST['Id'];
     $depertment=$_POST['dept'];
-    $password=$_POST['password'];
+    $password=$_POST['pass'];
 
     $select1="SELECT * FROM teacher WHERE ID='$ID'";
     $result1=mysqli_query($conn, $select1);
