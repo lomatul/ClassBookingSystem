@@ -25,8 +25,9 @@ if(isset($_POST['submitreg'])){
         $sql=mysqli_query($conn, $insert);
         if($sql){
           echo 
-          $_SESSION["ID"]=$row['ID'];
-         "<script> alert('Registration Complete'); window.location.href='LogIN.php'; </script> ";
+          $_SESSION["ID"]=$ID;
+          echo
+         "<script> alert('Registration Complete'); window.location.href='index.html'; </script> ";
         }else{
            echo 
            "<script> alert('Registration Failed'); </script> ";
