@@ -9,11 +9,7 @@ if(isset($_POST['submitreg'])){
     $depertment=$_POST['dept'];
     $Programe=$_POST['prog'];
     $Batch=$_POST['batch'];
-<<<<<<< HEAD
-    $password=$_POST['password'];
-=======
     $password=$_POST['pass'];
->>>>>>> lomatul
 
     $select1="SELECT * FROM cr WHERE ID='$ID'";
     $result1=mysqli_query($conn, $select1);
@@ -27,10 +23,10 @@ if(isset($_POST['submitreg'])){
         $hashpassword=password_hash($password, PASSWORD_DEFAULT);
         $insert= "INSERT INTO cr (ID, Name, Section, programe, department, Year, password) VALUES ('$ID','$username','$section','$Programe','$depertment','$Batch', '$hashpassword')";
         $sql=mysqli_query($conn, $insert);
-        if($sql){
-          echo 
-          $_SESSION["ID"]=$row['ID'];
-         "<script> alert('Registration Complete'); window.location.href='LogIN.php'; </script> ";
+        if($sql){ 
+          $_SESSION["ID"]=$ID;
+          echo
+         "<script> alert('Registration Complete'); window.location.href='index.html'; </script> ";
         }else{
            echo 
            "<script> alert('Registration Failed'); </script> ";
@@ -43,7 +39,7 @@ if(isset($_POST['submitreg'])){
     $passError = $IDError = false;
     if(isset($_POST['submitlog'])){
         $ID=$_POST['Id'];
-        $password=$_POST['password'];
+        $password=$_POST['pass'];
         $sql="SELECT * FROM cr WHERE ID='$ID'";
         $result=mysqli_query($conn, $sql);
         if(mysqli_num_rows($result)>0){
@@ -51,8 +47,7 @@ if(isset($_POST['submitreg'])){
             if((password_verify($password, $row['password']))&&($row['ID']==$ID)){
                 $_SESSION["ID"]=$row['ID'];
                 echo  
-                "<script> alert('login  done'); </script> ";
-                header("location: index.html");
+                "<script> alert('login done'); window.location.href='index.html'; </script> ";
             }else{
                 $passError = true;
             }

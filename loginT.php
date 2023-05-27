@@ -6,7 +6,7 @@ if(isset($_POST['submitreg'])){
     $username=$_POST['name'];
     $ID=$_POST['Id'];
     $depertment=$_POST['dept'];
-    $password=$_POST['password'];
+    $password=$_POST['pass'];
 
     $select1="SELECT * FROM teacher WHERE ID='$ID'";
     $result1=mysqli_query($conn, $select1);
@@ -22,7 +22,8 @@ if(isset($_POST['submitreg'])){
         $sql=mysqli_query($conn, $insert);
         if($sql){
           echo 
-          $_SESSION["ID"]=$row['ID'];
+          $_SESSION["ID"]=$ID;
+          echo
          "<script> alert('Registration Complete'); window.location.href='index.html'; </script> ";
         }else{
            echo 
