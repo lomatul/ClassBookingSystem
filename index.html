@@ -117,7 +117,7 @@
          
 
           <div class="hero-banner">
-            <img src="./assets/images/Classroom.png" alt="shape" class="shape-content">
+            <img id="gif-image" src="./assets/images/Classroom.gif" alt="shape" class="shape-content">
           </div>
 
         </div>
@@ -485,6 +485,15 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <script>
+
+function loopGif() {
+    var gifImage = document.getElementById("gif-image");
+    gifImage.src = gifImage.src; // Reload the same source to restart the GIF
+  }
+
+  // Set the loop interval to 10 seconds (10000 milliseconds)
+  setInterval(loopGif, 5000);
+
     var btn1 = document.getElementsByClassName("btn1");
     var slide = document.getElementById("slide");
     btn1[0].onclick = function(){
