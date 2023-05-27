@@ -122,35 +122,35 @@
             <td>Monday</td>
             <?php
             if($mapM['01']){?> 
-            <td>This is booked</td><?php }
+            <td class="booked">This is booked</td><?php }
             else{ ?>
-            <td>This is Not booked</td> <?php } ?>
+            <td class="not-booked">This is Not booked</td> <?php } ?>
             <?php
             if($mapM['02']){?> 
-            <td>This is booked</td><?php }
+            <td class="booked">This is booked</td><?php }
             else{ ?>
-            <td>This is Not booked</td> <?php } ?>
+            <td class="not-booked">This is Not booked</td> <?php } ?>
             <?php
             if($mapM['03']){?> 
-            <td>This is booked</td><?php }
+            <td class="booked">This is booked</td><?php }
             else{ ?>
-            <td>This is Not booked</td> <?php } ?>
+            <td class="not-booked">This is Not booked</td> <?php } ?>
             <?php
             if($mapM['04']){?> 
-            <td>This is booked</td><?php }
+            <td class="booked">This is booked</td><?php }
             else{ ?>
-            <td>This is Not booked</td> <?php } ?>
+            <td class="not-booked">This is Not booked</td> <?php } ?>
             <td></td>
             <?php
             if($mapM['05']){?> 
-            <td>This is booked</td><?php }
+            <td class="booked">This is booked</td><?php }
             else{ ?>
-            <td>This is Not booked</td> <?php } ?>
+            <td class="not-booked">This is Not booked</td> <?php } ?>
             <?php
             if($mapM['06']){?> 
-            <td>This is booked</td><?php }
+            <td class="booked">This is booked</td><?php }
             else{ ?>
-            <td>This is Not booked</td> <?php } ?>
+            <td class="not-booked">This is Not booked</td> <?php } ?>
             
             </tr>
             

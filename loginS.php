@@ -101,6 +101,8 @@ if(isset($_POST['submitreg'])){
           <h3>Haven't Register Yet ? Register Now</h3>
           <button type="submit"  name="submitlog" class="submit-btn">Log In</button>
         </form>
+
+
         <form id="registration" class="input-group" method="post">
           <input type="text" class="input-field" name="Id" id="Id" value="<?php echo isset($_POST['Id']) ? $_POST['Id'] : ''; ?>" placeholder="User ID" required>
           <?php if($IDError1){?>
@@ -112,7 +114,7 @@ if(isset($_POST['submitreg'])){
           <input type="number" class="input-field" name="batch" id="batch" value="<?php echo isset($_POST['batch']) ? $_POST['batch'] : ''; ?>" placeholder="Batch" required>
           <input type="password" class="input-field" name="pass" id="pass" value="<?php echo isset($_POST['pass']) ? $_POST['pass'] : ''; ?>" placeholder="Enter Password" required>
           <input type="checkbox" class="check-box"><span>I agree the terms and condition</span>
-          <button type="submit"  name="submitreg" class="submit-btn">Sign Up</button>
+          <button type="submit"  name="submitreg" class="submit-btn">Register</button>
         </form>
 
 
