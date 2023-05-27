@@ -1,3 +1,23 @@
+<?php
+  require 'config.php';
+  session_start();
+  if(!empty($_SESSION["ID"])){
+      $check=true;
+      
+      $ID=$_SESSION["ID"];
+      $sql="SELECT * From cr WHERE ID='$ID'";
+      $result=mysqli_query($conn, $sql);
+      $rows=mysqli_fetch_array($result);
+      $name=$rows['Name'];
+       
+      
+  }
+  else{
+      $check=false;
+      
+  }
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +49,7 @@
                     </div>
                     <hr>
     
-                    <a href="S_DashBoard.html" class="sub-menu-link">
+                    <a href="DashBoard.html" class="sub-menu-link">
                       <img src="./assets/images/profile.png">
                       <p>Show Dashboard</p>
                       <span></span>
@@ -47,7 +67,7 @@
                       <span></span>
                     </a>
     
-                    <a href="#" class="sub-menu-link">
+                    <a href="LogOUT.php" class="sub-menu-link">
                       <img src="./assets/images/logout.png">
                       <p>Log Out</p>
                       <span></span>
@@ -56,27 +76,31 @@
                 </div>
             </div>
         </nav>
-
+        
         <div class="container">
             <div class="box">
+              <?php if($check){ ?>
               <img src="./assets/images/user.png" alt="">
               <div class="details">
-                <p>Name: <span>Lomatul Mahzabin</span></p>
+                <p>Name: <span><?php echo $name ?></span></p>
                 <p>CR <span></span></p>
                 <hr>
-                <p>Student ID: <span>200042113</span></p>
+                <p>Student ID: <span><?php echo $ID ?></span></p>
                 <hr>
-                <p>Department: <span>Computer Science and Engineering</span></p>
+                <p>Department: <span><?php echo $rows['department'] ?></span></p>
                 <hr>
-                <p>Program: <span>Software Engineering</span></p>
+                <p>Program: <span><?php echo $rows['programe'] ?></span></p>
                 <hr>
                 <p>Batch: <span>20</span></p>
                 <hr>
               </div>
+              <?php }else{
+                echo  
+                "<script> alert('Login First'); window.location.href='loginS.php'; </script> ";
+              } ?>
             </div>
           </div>
-          
-    </div>
+        </div>
     
 <script>
     let subMenu = document.getElementById("subMenu");
