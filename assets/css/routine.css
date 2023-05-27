@@ -165,13 +165,15 @@ td{
     text-align: center;
 }
 .booked {
-    background-color: rgb(94, 224, 94); /* Set the desired background color for booked cells */
-    color: white; /* Set the desired text color for booked cells */
+  
+    background-color: rgb(255, 109, 109); /* Set the desired background color for not booked cells */
+    color: black; /* Set the desired text color for not booked cells */
+  
   }
 
   .not-booked {
-    background-color: rgb(244, 96, 96); /* Set the desired background color for not booked cells */
-    color: white; /* Set the desired text color for not booked cells */
+    background-color: rgb(154, 255, 154); /* Set the desired background color for booked cells */
+    color: rgb(0, 0, 0); /* Set the desired text color for booked cells */
   }
 
 .row
