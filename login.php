@@ -11,11 +11,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Oswald:wght@300&family=Square+Peg&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<<<<<<< HEAD
-    <title> Weather</title>
-=======
     <title> DBMS</title>
->>>>>>> lomatul
       </head>
         
       <body>
