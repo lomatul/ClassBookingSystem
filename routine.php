@@ -98,9 +98,7 @@
           </h1>
             <h3>Room No 302</h3>
          
-  <div class="container">
-    <input type="date">
-  </div>
+
            </ul>
      
            <table>
