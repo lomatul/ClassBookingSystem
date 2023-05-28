@@ -9,7 +9,15 @@
     if(mysqli_num_rows($resultM)>0){
       while($rowsM=$resultM->fetch_assoc()){
         $keyv=$rowsM['Slot_ID'];
-        $mapM[$keyv]=true;
+        $BookingID=$rowsM['booking_ID'];
+        $sqlRM="SELECT * FROM booking_request WHERE booking_ID='$BookingID' AND approved=false";
+        $resultRM=mysqli_query($conn, $sqlRM);
+        if(mysqli_num_rows($resultRM)>0){
+          $mapM[$keyv]=false;
+        }else{
+          $mapM[$keyv]=true;
+        }
+        
       }
     }
   
