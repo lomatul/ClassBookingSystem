@@ -123,54 +123,207 @@
               <th>3:45-5:00</th>
             </tr>
         
-        
+      
+          
             <tr>
+
             <td>Monday</td>
+
             <?php
             if($mapM['01']){?> 
-            <td class="booked">This is booked</td><?php }
-            else{ ?>
-            <td class="not-booked">This is Not booked</td> <?php } ?>
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is not Booked</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="closePopup('popup2')">Okay</button>
+                      <button type="button" onclick="closePopup('popup2')">Okay</button>
+                    </div>
+            </td> <?php } ?>
+
+
+
             <?php
             if($mapM['02']){?> 
-            <td class="booked">This is booked</td><?php }
-            else{ ?>
-            <td class="not-booked">This is Not booked</td> <?php } ?>
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td> <?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
             <?php
             if($mapM['03']){?> 
-            <td class="booked">This is booked</td><?php }
-            else{ ?>
-            <td class="not-booked">This is Not booked</td> <?php } ?>
+              <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
             <?php
             if($mapM['04']){?> 
-            <td class="booked">This is booked</td><?php }
-            else{ ?>
-            <td class="not-booked">This is Not booked</td> <?php } ?>
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
             <td></td>
+
+
             <?php
             if($mapM['05']){?> 
-            <td class="booked">This is booked</td><?php }
-            else{ ?>
-            <td class="not-booked">This is Not booked</td> <?php } ?>
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
             <?php
             if($mapM['06']){?> 
-            <td class="booked">This is booked</td><?php }
-            else{ ?>
-            <td class="not-booked">This is Not booked</td> <?php } ?>
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td> <?php } ?>
+
             
             </tr>
-            
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <tr>
-              <td>Tuesday</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-        
+                <td>Tuesday</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+
+  
+
               <tr>
                 <td>Wednesday</td>
                 <td></td>
@@ -181,8 +334,8 @@
                 <td></td>
                 <td></td>
                 </tr>
-        
-        
+
+
               <tr>
                   <td>Thursday</td>
                   <td></td>
@@ -193,8 +346,7 @@
                   <td></td>
                   <td></td>
               </tr>
-        
-        
+
               <tr>
                     <td>Friday</td>
                     <td></td>
@@ -219,8 +371,8 @@
 <!-- 
   - ionicon link
 -->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
 <script>
   let subMenu = document.getElementById("subMenu");
 
@@ -228,6 +380,20 @@
   {
     subMenu.classList.toggle("open-menu");
   }
+</script>
+
+
+<script>
+    function openPopup(popupId) {
+  let popup = document.getElementById(popupId);
+  popup.classList.add("open-popup");
+}
+
+function closePopup(popupId) {
+  let popup = document.getElementById(popupId);
+  popup.classList.remove("open-popup");
+}
+
 </script>
 
 </body>
