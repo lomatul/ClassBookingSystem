@@ -115,19 +115,50 @@
               <th>3:45-5:00</th>
             </tr>
         
-        
+      
+          
             <tr>
             <td>Monday</td>
             <?php
             if($mapM['01']){?> 
-            <td class="booked">This is booked</td><?php }
+            <td class="booked">
+            <button type="submit" class="btn" onclick="openPopup()">Submit</button>
+            <div class="PopUp" id="PopUp">
+                <img src="./assets/images/help.png  " alt="">
+                <h2> This class is not Booked </h2>
+                <p>Do you want to book the Class ?</p>
+                <button type="button" onclick="closePopup()"> Okay</button>
+            </div>
+            </td><?php }
             else{ ?>
-            <td class="not-booked">This is Not booked</td> <?php } ?>
+            <td class="not-booked">
+            <button type="submit" class="btn" onclick="openPopup()">Submit</button>
+            <div class="PopUp" id="PopUp">
+                <img src="./assets/images/help.png  " alt="">
+                <h2> This class is not Booked </h2>
+                <p>Do you want to book the Class ?</p>
+                <button type="button" onclick="closePopup()"> Okay</button>
+            </div>
+            </td> <?php } ?>
             <?php
             if($mapM['02']){?> 
-            <td class="booked">This is booked</td><?php }
+            <td class="booked"><button type="submit" class="btn" onclick="openPopup()">Submit</button>
+            <div class="PopUp" id="PopUp">
+                <img src="./assets/images/help.png  " alt="">
+                <h2> This class is not Booked </h2>
+                <p>Do you want to book the Class ?</p>
+                <button type="button" onclick="closePopup()"> Okay</button>
+            </div></td><?php }
             else{ ?>
-            <td class="not-booked">This is Not booked</td> <?php } ?>
+            <td class="not-booked">
+            <button type="submit" class="btn" onclick="openPopup()">Submit</button>
+            <div class="PopUp" id="PopUp">
+                <img src="./assets/images/help.png  " alt="">
+                <h2> This class is not Booked </h2>
+                <p>Do you want to book the Class ?</p>
+                <button type="button" onclick="closePopup()"> Okay</button>
+            </div>
+            </td> <?php } ?>
             <?php
             if($mapM['03']){?> 
             <td class="booked">This is booked</td><?php }
@@ -151,18 +182,58 @@
             <td class="not-booked">This is Not booked</td> <?php } ?>
             
             </tr>
-            
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <tr>
-              <td>Tuesday</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-        
+                <td>Tuesday</td>
+                
+            <td>     
+              <button type="submit" class="btn" onclick="openPopup()">Submit</button>
+            <div class="PopUp" id="PopUp">
+                <img src="./assets/images/help.png  " alt="">
+                <h2> This class is not Booked </h2>
+                <p>Do you want to book the Class ?</p>
+                <button type="button" onclick="closePopup()"> Okay</button>
+            </div>
+          </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+
+  
+
               <tr>
                 <td>Wednesday</td>
                 <td></td>
@@ -173,8 +244,8 @@
                 <td></td>
                 <td></td>
                 </tr>
-        
-        
+
+
               <tr>
                   <td>Thursday</td>
                   <td></td>
@@ -185,8 +256,7 @@
                   <td></td>
                   <td></td>
               </tr>
-        
-        
+
               <tr>
                     <td>Friday</td>
                     <td></td>
@@ -211,8 +281,8 @@
 <!-- 
   - ionicon link
 -->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
 <script>
   let subMenu = document.getElementById("subMenu");
 
@@ -220,6 +290,20 @@
   {
     subMenu.classList.toggle("open-menu");
   }
+</script>
+
+
+<script>
+    let PopUp = document.getElementById("PopUp");
+
+    function openPopup(){
+        PopUp.classList.add("open-popup");
+    }
+
+    function closePopup(){
+        PopUp.classList.remove("open-popup");
+    }
+
 </script>
 
 </body>

@@ -9,7 +9,6 @@
     min-height: 100vh;
     background: white;
     color: rgb(33, 12, 67);
-    text-align: center;
 }
 nav{
     background: #1a1a1a;
@@ -136,8 +135,7 @@ max-height: 400px;
 }
 
 .About h3{
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 50px;
     font-size: 20px;
 }
 
@@ -151,18 +149,11 @@ max-height: 400px;
 }
 
 table{
-    margin-top: 50px;
+    margin-top: 100px;
     margin-left: 50px;
     border-spacing: 0;
     float: center;
     width: 80%;
-}
-
-td{
-    width: 150px;
-    border: 1px solid black;
-    height: 80px;
-    text-align: center;
 }
 .booked {
   
@@ -176,10 +167,78 @@ td{
     color: rgb(0, 0, 0); /* Set the desired text color for booked cells */
   }
 
-.row
-{
+  td {
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 0; /* Remove any default padding */
+  }
+  
+  .row {
     background-color: rgb(109, 184, 237);
     text-align: center;
+  }
+  
+  .btn {
+    width: 100%; /* Make the button fill the entire width of the td */
+    height: 100%; /* Make the button fill the entire height of the td */
+    text-align: center;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    opacity: 0;
+  }
+
+.PopUp{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.PopUp img{
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0,0.2);
+}
+
+.PopUp h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.PopUp button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0,0.2);
 }
 
 th{
@@ -200,23 +259,15 @@ th{
     border: solid 2px black;
   }
 
-  input[type="date"]
-  {
-      position: relative;
-      width: 300px;
-      height: 60px;
-      padding: 20px;
-      border: 0;
-      background-color: rgb(158, 215, 149);
-      border-radius: 10px;
-      outline: none;
-      font-size: 22px;
-      font-weight: 400px;
-      letter-spacing: 3px;
-      color: rgb(2, 8, 14);
-      text-transform: uppercase;
-      box-shadow: 0 4px 20px rgba(3, 44, 41, 0.226);
-  }
+input[type="search"] {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+}
+
 .search .icon-search {
     color: #060101;
     font-size: 18px;

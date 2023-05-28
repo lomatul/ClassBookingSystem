@@ -49,7 +49,7 @@
                     </div>
                     <hr>
     
-                    <a href="DashBoard.html" class="sub-menu-link">
+                    <a href="S_DashBoard.html" class="sub-menu-link">
                       <img src="./assets/images/profile.png">
                       <p>Show Dashboard</p>
                       <span></span>
