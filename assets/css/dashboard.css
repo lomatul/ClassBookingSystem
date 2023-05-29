@@ -161,6 +161,7 @@ td{
     border: 1px solid black;
     height: 80px;
     text-align: center;
+ 
 }
 
 .row
@@ -202,18 +203,56 @@ input[type="search"] {
     margin-right: 5px;
   }
 
-.btn {
+.btnA {
+    cursor: pointer;
+    align-items: center;
     font-size: 14px;
-    text-transform: uppercase;
     font-weight: 600px;
-    padding: 10px 40px;
+    width: 100px;
+    height: 50px;
+    padding: 10px 10px;
     border: 1px solid;
     border-radius: 6px;
+    margin-top: 20px;
     margin-bottom: 20px;
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: rgb(0, 0, 0);
+    background-color: rgb(125, 227, 143);
   }
   
 
+  .btnA:hover {
+    transform: scale(1.2);
+}
+.hide {
+    display: none;
+  }
+.btnR {
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600px;
+    width: 100px;
+    height: 50px;
+    padding: 10px 10px;
+    border: 1px solid;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: rgb(0, 0, 0);
+    background-color: rgb(237, 96, 96);
+  }
+  
+
+  .btnR:hover {
+    transform: scale(1.2);
+}
 
 @media screen and (max-width: 1068px) {
     .container{

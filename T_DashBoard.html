@@ -87,31 +87,35 @@
             
           </tr>
       
-      
           <tr>
-          <td>Sunday</td>
-          <td></td>
-          <td></td>
-          <td></td>
+            <td>Sunday</td>
+            <td></td>
+            <td></td>
+            <td>
+              <button type="submit" class="btnA" onclick="toggleButtonVisibility(this)">Approved</button>
+              <button type="submit" class="btnR" onclick="toggleButtonVisibility(this)">Reject</button>
+            </td>
           </tr>
           
           <tr>
             <td>Monday</td>
             <td></td>
             <td></td>
+            <td>
+              <button type="submit" class="btnA" onclick="toggleButtonVisibility(this)">Approved</button>
+              <button type="submit" class="btnR" onclick="toggleButtonVisibility(this)">Reject</button>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Tuesday</td>
             <td></td>
-            
-            </tr>
-      
-            <tr>
-              <td>Tuesday</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              
-              </tr>
-  
-      
+            <td></td>
+            <td>
+              <button type="submit" class="btnA" onclick="toggleButtonVisibility(this)">Approved</button>
+              <button type="submit" class="btnR" onclick="toggleButtonVisibility(this)">Reject</button>
+            </td>
+          </tr>
         </table>
 
         
@@ -128,6 +132,16 @@
     subMenu.classList.toggle("open-menu");
   }
 </script>
+
+
+<script>
+ function toggleButtonVisibility(button) {
+    var siblingButton = button.parentElement.querySelector(button.classList.contains("btnA") ? ".btnR" : ".btnA");
+    siblingButton.style.display = siblingButton.style.display === "none" ? "block" : "none";
+    button.disabled = true;
+  }
+</script>
+
 
 </body>
 </html>
