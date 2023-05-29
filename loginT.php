@@ -37,7 +37,7 @@ if(isset($_POST['submitreg'])){
     $passError = $IDError = false;
     if(isset($_POST['submitlog'])){
         $ID=$_POST['Id'];
-        $password=$_POST['password'];
+        $password=$_POST['pass'];
         $sql="SELECT * FROM teacher WHERE ID='$ID'";
         $result=mysqli_query($conn, $sql);
         if(mysqli_num_rows($result)>0){
@@ -92,7 +92,7 @@ if(isset($_POST['submitreg'])){
           <input type="text" class="input-field" name="Id" id="Id" value="<?php echo isset($_POST['Id']) ? $_POST['Id'] : ''; ?>" placeholder="User ID" required>
           <?php if($IDError){?>
             <p class="error_message"> Wrong ID </p><?php } ?>
-          <input type="password" class="input-field" placeholder="Enter Password" required>
+          <input type="password" class="input-field" name="pass" id="pass" placeholder="Enter Password" required>
           <?php if($passError){?>
             <p class="error_message"> Wrong Password </p><?php } ?>
           <input type="checkbox" class="check-box"><span>Remember Password</span>

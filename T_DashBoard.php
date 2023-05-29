@@ -1,3 +1,17 @@
+<?php
+      require 'config.php';
+      session_start();
+      $TID=$_SESSION["ID"];
+      $query="SELECT * FROM booking_request WHERE teacher_ID='$TID' AND approved IS NULL";
+      $result=mysqli_query($conn, $query);
+      if(mysqli_num_rows($result)>0){
+        $check=true;
+      }else{
+        $check=false;
+        echo "<script> alert('No result found'); </script> ";
+      }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,18 +100,33 @@
             <th>Approved/Rejected</th>
             
           </tr>
-      
+          <?php
+          while($rows=$result->fetch_assoc()){
+            $ID=$rows['booking_ID'];
+            $sqlb="SELECT * FROM booking WHERE booking_ID=$ID";
+            $resultB=mysqli_query($conn, $sqlb);
+            $rowB=mysqli_fetch_array($resultB);
+            $slotID=$rowB['Slot_ID'];
+            $sqlS="SELECT * FROM slot WHERE Slot_ID='$slotID'";
+            $resultS=mysqli_query($conn, $sqlS);
+            $rowS=mysqli_fetch_array($resultS);
+            $classID=$rowB['classroom_ID'];
+            $sqlC="SELECT * FROM classroom WHERE classroom_ID='$classID'";
+            $resultC=mysqli_query($conn, $sqlC);
+            $rowC=mysqli_fetch_array($resultC);
+          ?>
+
           <tr>
-            <td>Sunday</td>
-            <td></td>
-            <td></td>
+            <td><?php echo $rowB['Day'] ?></td>
+            <td><?php echo date("h:i A", strtotime($rowS['Start_time']))." - ".date("h:i A", strtotime($rowS['End_time']))?></td>
+            <td><?php echo $rowC['Room No']?></td>
             <td>
-              <button type="submit" class="btnA" onclick="toggleButtonVisibility(this)">Approved</button>
-              <button type="submit" class="btnR" onclick="toggleButtonVisibility(this)">Reject</button>
+              <button type="submit" class="btnA" onclick="toggleButtonVisibility(this); redirectToPage(<?php echo $ID ?>, 1)">Approved</button>
+              <button type="submit" class="btnR" onclick="toggleButtonVisibility(this); redirectToPage(<?php echo $ID ?>, 0)">Reject</button>
             </td>
           </tr>
-          
-          <tr>
+          <?php } ?>
+          <!-- <tr>
             <td>Monday</td>
             <td></td>
             <td></td>
@@ -112,10 +141,10 @@
             <td></td>
             <td></td>
             <td>
-              <button type="submit" class="btnA" onclick="toggleButtonVisibility(this)">Approved</button>
-              <button type="submit" class="btnR" onclick="toggleButtonVisibility(this)">Reject</button>
+              <button type="submit" class="btnA" onclick="toggleButtonVisibility(this); redirectToPage(<?php echo $ID ?>, 1)">Approved</button>
+              <button type="submit" class="btnR" onclick="toggleButtonVisibility(this))">Reject</button>
             </td>
-          </tr>
+          </tr> -->
         </table>
 
         
@@ -130,6 +159,9 @@
   function toggleMenu()
   {
     subMenu.classList.toggle("open-menu");
+  }
+  function redirectToPage(value1, value2) {
+  window.location.href = "requests_handle.php?id="+value1+"&action="+value2;
   }
 </script>
 
