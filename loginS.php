@@ -26,7 +26,7 @@ if(isset($_POST['submitreg'])){
         if($sql){ 
           $_SESSION["ID"]=$ID;
           echo
-         "<script> alert('Registration Complete'); window.location.href='index.html'; </script> ";
+         "<script> alert('Registration Complete'); window.location.href='profileS.php'; </script> ";
         }else{
            echo 
            "<script> alert('Registration Failed'); </script> ";
@@ -47,7 +47,7 @@ if(isset($_POST['submitreg'])){
             if((password_verify($password, $row['password']))&&($row['ID']==$ID)){
                 $_SESSION["ID"]=$row['ID'];
                 echo  
-                "<script> alert('login done'); window.location.href='index.html'; </script> ";
+                "<script> alert('login done'); window.location.href='profileS.php'; </script> ";
             }else{
                 $passError = true;
             }

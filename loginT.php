@@ -24,7 +24,7 @@ if(isset($_POST['submitreg'])){
           echo 
           $_SESSION["ID"]=$ID;
           echo
-         "<script> alert('Registration Complete'); window.location.href='index.html'; </script> ";
+         "<script> alert('Registration Complete'); window.location.href='profileT.php'; </script> ";
         }else{
            echo 
            "<script> alert('Registration Failed'); </script> ";
@@ -46,7 +46,7 @@ if(isset($_POST['submitreg'])){
                 $_SESSION["ID"]=$row['ID'];
                 echo  
                 "<script> alert('login  done'); </script> ";
-                header("location: index.html");
+                header("location: profileT.php");
             }else{
                 $passError = true;
             }
