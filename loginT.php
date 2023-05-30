@@ -97,8 +97,11 @@ if(isset($_POST['submitreg'])){
             <p class="error_message"> Wrong Password </p><?php } ?>
           <input type="checkbox" class="check-box"><span>Remember Password</span>
           <h3>Haven't Register Yet ? Register Now</h3>
-          <button type="submit" name="submitlog" class="submit-btn">Log In</button>
+          
+          <a href="profileT.php"><button type="submit" name="submitlog" class="submit-btn">Log In</button> </a>
         </form>
+
+
         <form id="registration" class="input-group" method="post">
           <input type="text" class="input-field" name="Id" id="Id" value="<?php echo isset($_POST['Id']) ? $_POST['Id'] : ''; ?>" placeholder="User ID" required>
           <?php if($IDError1){?>
@@ -107,7 +110,7 @@ if(isset($_POST['submitreg'])){
           <input type="text" class="input-field" name="dept" id="dept" value="<?php echo isset($_POST['dept']) ? $_POST['dept'] : ''; ?>" placeholder="Department" required>
           <input type="password" class="input-field" name="pass" id="pass" placeholder="Enter Password" required>
           <input type="checkbox" class="check-box"><span>I agree the terms and condition</span>
-          <button type="submit"  name="submitreg" class="submit-btn">Log In</button>
+          <a href="profileT.php"><button type="submit"  name="submitreg" class="submit-btn">Log In</button> </a>
         </form>
 
 

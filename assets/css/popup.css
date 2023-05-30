@@ -24,6 +24,11 @@
     border-radius: 30px;
 }
 
+.dropdown {
+    width: 200px;
+    padding: 5px;
+    margin-top: 20px;
+}
 .PopUp{
     width: 400px;
     background: #fff;
