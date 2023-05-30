@@ -1,6 +1,6 @@
 body {
     font-family: 'Acme', sans-serif;
-    background: #b7c0f3;
+    background: #f0f1f7;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@ body {
     box-shadow: 0 0 0.8em #26489a;
 }
 .select:hover{
-    background: #c3d1ec;
+    background: #d3d8e4;
 }
 
 .caret {
@@ -79,7 +79,7 @@ body {
 .menu{
     list-style: none;
     padding: 0.2em 0.5em;
-    background: #b0bad0;
+    background: #dce2ec;
     border: 1px #363a43 solid;
     box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
     border-radius: 0.5em;

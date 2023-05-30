@@ -506,13 +506,10 @@
   
 </div>
 
-<script src="./assets/js/script.js"></script>
 
-<!-- 
-  - ionicon link
--->
-<!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
+<script src="./assets/js/script.js"></script>
+<script src="./assets/js/routine.js"></script>
+
 <script>
   let subMenu = document.getElementById("subMenu");
 
@@ -545,10 +542,6 @@ function closePopup(popupId) {
   let popup = document.getElementById(popupId);
   popup.classList.remove("open-popup");
 
-function redirectToPage(value1) {
-  window.location.href = "Bookingrequest.php?id="+value1;
-}
-
   // Enable buttons in the table
   let tableButtons = document.querySelectorAll("table button:not([onclick='openPopup()'])");
   tableButtons.forEach((button) => {
@@ -556,6 +549,11 @@ function redirectToPage(value1) {
   });
 }
 </script>
+
+
+
+
+
 
 
 

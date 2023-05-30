@@ -171,6 +171,7 @@
 
 
 <script>
+  
  function toggleButtonVisibility(button) {
     var siblingButton = button.parentElement.querySelector(button.classList.contains("btnA") ? ".btnR" : ".btnA");
     siblingButton.style.display = siblingButton.style.display === "none" ? "block" : "none";
