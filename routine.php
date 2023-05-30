@@ -310,7 +310,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['02'] ?>, '123')" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['02'] ?>)" name="req">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                   </div>
             </td> <?php } ?>
@@ -545,8 +545,8 @@ function closePopup(popupId) {
   let popup = document.getElementById(popupId);
   popup.classList.remove("open-popup");
 
-function redirectToPage(value1, value2) {
-  window.location.href = "Bookingrequest.php?id="+value1+"&teacher="+value2;
+function redirectToPage(value1) {
+  window.location.href = "Bookingrequest.php?id="+value1;
 }
 
   // Enable buttons in the table

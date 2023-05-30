@@ -2,6 +2,10 @@
       require 'config.php';
       session_start();
       $TID=$_SESSION["ID"];
+      $sqlname="SELECT * From teacher WHERE ID='$TID'";
+      $resultname=mysqli_query($conn, $sqlname);
+      $rowName=mysqli_fetch_array($resultname);
+      $name=$rowName['Name'];
       $query="SELECT * FROM booking_request WHERE teacher_ID='$TID' AND approved IS NULL";
       $result=mysqli_query($conn, $query);
       if(mysqli_num_rows($result)>0){
@@ -54,11 +58,11 @@
             <div class="sub-menu">
                 <div class="user-info">
                     <img src="./assets/images/teacher.png" alt="">
-                    <h2>Lomatul Mahzabin</h2>
+                    <h2><?php echo $name ?></h2>
                 </div>
                 <hr>
 
-                <a href="profileT.html" class="sub-menu-link">
+                <a href="profileT.php" class="sub-menu-link">
                   <img src="./assets/images/profile.png">
                   <p>Show profile</p>
                   <span></span>

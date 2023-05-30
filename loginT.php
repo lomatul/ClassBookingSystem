@@ -45,8 +45,7 @@ if(isset($_POST['submitreg'])){
             if((password_verify($password, $row['password']))&&($row['ID']==$ID)){
                 $_SESSION["ID"]=$row['ID'];
                 echo  
-                "<script> alert('login  done'); </script> ";
-                header("location: profileT.php");
+                "<script> alert('login done'); window.location.href='profileT.php'; </script> ";
             }else{
                 $passError = true;
             }

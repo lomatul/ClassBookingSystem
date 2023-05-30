@@ -1,3 +1,25 @@
+<?php
+  require 'config.php';
+  session_start();
+  if(!empty($_SESSION["ID"])){
+      $check=true;
+      
+      $ID=$_SESSION["ID"];
+      $sql="SELECT * From teacher WHERE ID='$ID'";
+      $result=mysqli_query($conn, $sql);
+      $rows=mysqli_fetch_array($result);
+      $name=$rows['Name'];
+       
+      
+  }
+  else{
+      $check=false;
+      echo  
+      "<script> alert('Login First'); window.location.href='loginT.php'; </script> ";
+      
+  }
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +38,7 @@
         <nav>
           
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <img src="./assets/images/teacher.png" class="user-pic" onclick="toggleMenu()">
@@ -25,11 +47,11 @@
                 <div class="sub-menu">
                     <div class="user-info">
                         <img src="./assets/images/teacher.png" alt="">
-                        <h2>Lomatul Mahzabin</h2>
+                        <h2><?php echo $name ?></h2>
                     </div>
                     <hr>
     
-                    <a href="T_DashBoard.html" class="sub-menu-link">
+                    <a href="T_DashBoard.php" class="sub-menu-link">
                       <img src="./assets/images/profile.png">
                       <p>Show Dashboard</p>
                       <span></span>
@@ -47,7 +69,7 @@
                       <span></span>
                     </a>
     
-                    <a href="#" class="sub-menu-link">
+                    <a href="LogOUT" class="sub-menu-link">
                       <img src="./assets/images/logout.png">
                       <p>Log Out</p>
                       <span></span>
@@ -59,14 +81,19 @@
 
         <div class="container">
             <div class="box">
+            <?php if($check){ ?>
               <img src="./assets/images/teacher.png" alt="">
               <div class="details">
-                <p>Name: <span>Lomatul Mahzabin</span></p>
-                <p>Teacher<span></span></p>
+                <p>Name: <span><?php echo $name ?></span></p>
+                <p>Teacher<span><?php echo $rows['department'] ?></span></p>
                 <hr>
-                <p>Department: <span>Computer Science and Engineering</span></p>
+                <p>Department: <span></span></p>
                 <hr>
               </div>
+              <?php }else{
+                echo  
+                "<script> alert('Login First'); window.location.href='loginT.php'; </script> ";
+              } ?>
             </div>
           </div>
 

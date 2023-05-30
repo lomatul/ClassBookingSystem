@@ -14,6 +14,8 @@
   }
   else{
       $check=false;
+      echo  
+      "<script> alert('Login First'); window.location.href='loginS.php'; </script> ";
       
   }
   
@@ -36,7 +38,7 @@
         <nav>
           
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <img src="./assets/images/user.png" class="user-pic" onclick="toggleMenu()">
@@ -45,11 +47,11 @@
                 <div class="sub-menu">
                     <div class="user-info">
                         <img src="./assets/images/user.png">
-                        <h2>Lomatul Mahzabin</h2>
+                        <h2><?php echo $name ?></h2>
                     </div>
                     <hr>
     
-                    <a href="S_DashBoard.html" class="sub-menu-link">
+                    <a href="S_DashBoard.php" class="sub-menu-link">
                       <img src="./assets/images/profile.png">
                       <p>Show Dashboard</p>
                       <span></span>
