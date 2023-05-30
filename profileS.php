@@ -93,13 +93,16 @@
                 <hr>
                 <p>Batch: <span>20</span></p>
                 <hr>
+  
               </div>
               <?php }else{
                 echo  
                 "<script> alert('Login First'); window.location.href='loginS.php'; </script> ";
               } ?>
             </div>
+            
           </div>
+        
         </div>
     
 <script>

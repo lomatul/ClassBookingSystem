@@ -15,6 +15,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/dashboard.css">
+  <link rel="stylesheet" href="./assets/css/Booking.css">
 
   <!-- 
     - google font link
@@ -73,13 +74,27 @@
     </nav>
 
     <div class="About">
-        
+      <h3>Search Classroom for booking</h3>
       <ul>
-          <h3>Search Classroom for booking</h3>
-          <div class="search">
-              <input type="search" placeholder="Search Room no">
-              <a href="#" ><i class="fa fa-search icon-search"></i></a>
-          </div>
+         
+          <form>
+            <div class="container">
+              <div class="dropdown">
+                <div class="select">
+                  <span class="selected">Teacher A</span>
+                  <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                  <li>Teacher B</li>
+                  <li>Teacher C</li>
+                  <li>Teacher D</li>
+                  <li class="active">Teacher E</li>
+                  <li>Teacher F</li>
+                </ul>
+              </div>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
            </ul>
      
            <table>
@@ -132,6 +147,6 @@
     subMenu.classList.toggle("open-menu");
   }
 </script>
-
+<script src="./assets/js/booking.js"></script>
 </body>
 </html>
