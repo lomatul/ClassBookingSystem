@@ -1,3 +1,9 @@
+document.querySelectorAll('.menu li').forEach(function(element) {
+  element.addEventListener('click', function() {
+      var value = this.getAttribute('data-value');
+      document.getElementById('selectedNummer').value = value;
+  });
+});
 const dropdowns= document.querySelectorAll('.dropdown');
 
 dropdowns.forEach(dropdown=>{
