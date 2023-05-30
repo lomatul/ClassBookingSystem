@@ -1,3 +1,17 @@
+<?php
+  require 'config.php';
+  $currentDay = date("l");
+  $currentTime = date("H:i");
+
+  if($currentDay === "Monday" && $currentTime>"00:00" &&$currentTime<"01:00") {
+    // Perform your desired actions for Sunday at midnight
+    $dlt="DELETE FROM booked WHERE booking_ID IN (SELECT booking_ID FROM booking_request)";
+    $check2=mysqli_query($conn, $dlt);
+  }else {
+    // Perform actions for other days or times
+    // echo "It is not Sunday at midnight.";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

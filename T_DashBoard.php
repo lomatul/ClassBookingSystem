@@ -119,7 +119,7 @@
           <tr>
             <td><?php echo $rowB['Day'] ?></td>
             <td><?php echo date("h:i A", strtotime($rowS['Start_time']))." - ".date("h:i A", strtotime($rowS['End_time']))?></td>
-            <td><?php echo $rowC['Room No']?></td>
+            <td><?php echo $rowC['Room_No']?></td>
             <td>
               <button type="submit" class="btnA" onclick="toggleButtonVisibility(this); redirectToPage(<?php echo $ID ?>, 1)">Approved</button>
               <button type="submit" class="btnR" onclick="toggleButtonVisibility(this); redirectToPage(<?php echo $ID ?>, 0)">Reject</button>

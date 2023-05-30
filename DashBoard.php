@@ -10,7 +10,11 @@ $name=$row['Name'];
 
 if (isset($_POST['search'])) {
     $tag = $_POST["searx"];
-    header("location: routine.php?tag=$tag");
+    $sql3="SELECT * FROM classroom WHERE Room_No=$tag";
+    $result3=mysqli_query($conn, $sql3);
+    $row3=mysqli_fetch_array($result3);
+    $CID=$row3['classroom_ID'];   
+    header("location: routine.php?tag=$CID");
 }
 
 $sql2 = "SELECT * FROM booking_request br,booking b WHERE br.booking_ID = b.booking_ID AND br.cr_ID = '$ID' ORDER BY req_ID DESC LIMIT 3";
@@ -116,14 +120,28 @@ $result2=mysqli_query($conn, $sql2);
 
           <?php
             while($rows=$result2->fetch_assoc()){
+              $slotID=$rows['Slot_ID'];
+              $sqlS="SELECT * FROM slot WHERE Slot_ID='$slotID'";
+              $resultS=mysqli_query($conn, $sqlS);
+              $rowS=mysqli_fetch_array($resultS);
+              $classID=$rows['classroom_ID'];
+              $sqlC="SELECT * FROM classroom WHERE classroom_ID='$classID'";
+              $resultC=mysqli_query($conn, $sqlC);
+              $rowC=mysqli_fetch_array($resultC);
           ?>
       
       
           <tr>
           <td><?php echo $rows['Day']; ?></td>
-          <td><?php echo $rows['Slot_ID']; ?></td>
-          <td><?php echo $rows['classroom_ID']; ?></td>
-          <td><?php echo $rows['approved']; ?></td>
+          <td><?php echo date("h:i A", strtotime($rowS['Start_time']))." - ".date("h:i A", strtotime($rowS['End_time']))?></td>
+          <td><?php echo $rowC['Room_No']?></td>
+          <td><?php if($rows['approved']==1){
+                      echo "approved";
+                }else if($rows['approved']==0){
+                  echo "Rejected";
+                }else if($rows['approved']==NULL){
+                  echo "Pending";
+                } ?></td>
           </tr>
   
           <?php }

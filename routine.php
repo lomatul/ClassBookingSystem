@@ -1,6 +1,7 @@
 <?php
   require 'config.php';
-  
+  $ID=$_GET['tag'];
+  //Monday
   $mapM=array(
     '01'=>true,'02'=>true,'03'=>true,'04'=>true,'05'=>true,'06'=>true
   );
@@ -10,7 +11,7 @@
   $mapIDM=array(
     '01'=>NULL,'02'=>NULL,'03'=>NULL,'04'=>NULL,'05'=>NULL,'06'=>NULL
   );
-  $sqlM="SELECT * FROM booking WHERE Day='Monday' AND booking_ID NOT IN (SELECT booking_ID FROM booked)";
+  $sqlM="SELECT * FROM booking WHERE classroom_ID=$ID AND Day='Monday' AND booking_ID NOT IN (SELECT booking_ID FROM booked)";
   $resultM=mysqli_query($conn, $sqlM);
     if(mysqli_num_rows($resultM)>0){
       while($rowsM=$resultM->fetch_assoc()){
@@ -28,9 +29,120 @@
         
       }
     }
-  
+
+    //Teusday
+    $mapT=array(
+      '01'=>true,'02'=>true,'03'=>true,'04'=>true,'05'=>true,'06'=>true
+    );
+    $mapTpend=array(
+      '01'=>false,'02'=>false,'03'=>false,'04'=>false,'05'=>false,'06'=>false
+    );
+    $mapIDT=array(
+      '01'=>NULL,'02'=>NULL,'03'=>NULL,'04'=>NULL,'05'=>NULL,'06'=>NULL
+    );
+    $sqlT="SELECT * FROM booking WHERE classroom_ID=$ID AND Day='Tuesday' AND booking_ID NOT IN (SELECT booking_ID FROM booked)";
+    $resultT=mysqli_query($conn, $sqlM);
+      if(mysqli_num_rows($resultT)>0){
+        while($rowsT=$resultT->fetch_assoc()){
+          $keyv=$rowsT['Slot_ID'];
+          $BookingIDT=$rowsT['booking_ID'];
+          $mapT[$keyv]=false;
+          $mapIDT[$keyv]=$BookingIDT;
+          $sqlRT="SELECT * FROM booking_request WHERE booking_ID=$BookingIDT AND approved IS NULL";
+          $resultRT=mysqli_query($conn, $sqlRT);
+          if(mysqli_num_rows($resultRT)>0){
+            $mapTpend[$keyv]=true;
+          }else{
+            $mapTpend[$keyv]=false;
+          }
+          
+        }
+      }
+      //Wednesday
+      $mapW=array(
+        '01'=>true,'02'=>true,'03'=>true,'04'=>true,'05'=>true,'06'=>true
+      );
+      $mapWpend=array(
+        '01'=>false,'02'=>false,'03'=>false,'04'=>false,'05'=>false,'06'=>false
+      );
+      $mapIDW=array(
+        '01'=>NULL,'02'=>NULL,'03'=>NULL,'04'=>NULL,'05'=>NULL,'06'=>NULL
+      );
+      $sqlW="SELECT * FROM booking WHERE classroom_ID=$ID AND Day='Wednesday' AND booking_ID NOT IN (SELECT booking_ID FROM booked)";
+      $resultW=mysqli_query($conn, $sqlW);
+        if(mysqli_num_rows($resultW)>0){
+          while($rowsW=$resultW->fetch_assoc()){
+            $keyv=$rowsW['Slot_ID'];
+            $BookingID=$rowsW['booking_ID'];
+            $mapW[$keyv]=false;
+            $mapIDW[$keyv]=$BookingID;
+            $sqlRW="SELECT * FROM booking_request WHERE booking_ID=$BookingID AND approved IS NULL";
+            $resultRW=mysqli_query($conn, $sqlRW);
+            if(mysqli_num_rows($resultRW)>0){
+              $mapWpend[$keyv]=true;
+            }else{
+              $mapWpend[$keyv]=false;
+            }
             
-  
+          }
+        }
+        //Thursday
+        $mapTh=array(
+          '01'=>true,'02'=>true,'03'=>true,'04'=>true,'05'=>true,'06'=>true
+        );
+        $mapThpend=array(
+          '01'=>false,'02'=>false,'03'=>false,'04'=>false,'05'=>false,'06'=>false
+        );
+        $mapIDTh=array(
+          '01'=>NULL,'02'=>NULL,'03'=>NULL,'04'=>NULL,'05'=>NULL,'06'=>NULL
+        );
+        $sqlTh="SELECT * FROM booking WHERE classroom_ID=$ID AND Day='Thursday' AND booking_ID NOT IN (SELECT booking_ID FROM booked)";
+        $resultTh=mysqli_query($conn, $sqlTh);
+          if(mysqli_num_rows($resultTh)>0){
+            while($rowsTh=$resultTh->fetch_assoc()){
+              $keyv=$rowsTh['Slot_ID'];
+              $BookingID=$rowsTh['booking_ID'];
+              $mapTh[$keyv]=false;
+              $mapIDTh[$keyv]=$BookingIDTh;
+              $sqlRTh="SELECT * FROM booking_request WHERE booking_ID=$BookingIDTh AND approved IS NULL";
+              $resultRTh=mysqli_query($conn, $sqlRTh);
+              if(mysqli_num_rows($resultRTh)>0){
+                $mapThpend[$keyv]=true;
+              }else{
+                $mapThpend[$keyv]=false;
+              }
+              
+            }
+          }
+
+          //Friday
+          $mapF=array(
+            '01'=>true,'02'=>true,'03'=>true,'04'=>true,'05'=>true,'06'=>true
+          );
+          $mapFpend=array(
+            '01'=>false,'02'=>false,'03'=>false,'04'=>false,'05'=>false,'06'=>false
+          );
+          $mapIDF=array(
+            '01'=>NULL,'02'=>NULL,'03'=>NULL,'04'=>NULL,'05'=>NULL,'06'=>NULL
+          );
+          $sqlF="SELECT * FROM booking WHERE classroom_ID=$ID AND Day='Friday' AND booking_ID NOT IN (SELECT booking_ID FROM booked)";
+          $resultF=mysqli_query($conn, $sqlF);
+            if(mysqli_num_rows($resultF)>0){
+              while($rowsF=$resultF->fetch_assoc()){
+                $keyv=$rowsF['Slot_ID'];
+                $BookingIDF=$rowsF['booking_ID'];
+                $mapF[$keyv]=false;
+                $mapIDF[$keyv]=$BookingIDF;
+                $sqlRF="SELECT * FROM booking_request WHERE booking_ID=$BookingIDF AND approved IS NULL";
+                $resultRM=mysqli_query($conn, $sqlRF);
+                if(mysqli_num_rows($resultRF)>0){
+                  $mapFpend[$keyv]=true;
+                }else{
+                  $mapFpend[$keyv]=false;
+                }
+                
+              }
+            }
 ?>
 <!DOCTYPE html>
 <html lang="en">
