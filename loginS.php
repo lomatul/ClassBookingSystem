@@ -26,7 +26,7 @@ if(isset($_POST['submitreg'])){
         if($sql){ 
           $_SESSION["ID"]=$ID;
           echo
-         "<script> alert('Registration Complete'); window.location.href='index.html'; </script> ";
+         "<script> alert('Registration Complete'); window.location.href='profileS.php'; </script> ";
         }else{
            echo 
            "<script> alert('Registration Failed'); </script> ";
@@ -47,7 +47,7 @@ if(isset($_POST['submitreg'])){
             if((password_verify($password, $row['password']))&&($row['ID']==$ID)){
                 $_SESSION["ID"]=$row['ID'];
                 echo  
-                "<script> alert('login done'); window.location.href='index.html'; </script> ";
+                "<script> alert('login done'); window.location.href='profileS.php'; </script> ";
             }else{
                 $passError = true;
             }
@@ -99,7 +99,8 @@ if(isset($_POST['submitreg'])){
             <p class="error_message"> Wrong Password </p><?php } ?>
           <input type="checkbox" class="check-box"><span>Remember Password</span>
           <h3>Haven't Register Yet ? Register Now</h3>
-          <button type="submit"  name="submitlog" class="submit-btn">Log In</button>
+          <a href="profileS.php"> <button type="submit"  name="submitlog" class="submit-btn">Log In</button> </a>
+         
         </form>
 
 
@@ -114,7 +115,9 @@ if(isset($_POST['submitreg'])){
           <input type="number" class="input-field" name="batch" id="batch" value="<?php echo isset($_POST['batch']) ? $_POST['batch'] : ''; ?>" placeholder="Batch" required>
           <input type="password" class="input-field" name="pass" id="pass" value="<?php echo isset($_POST['pass']) ? $_POST['pass'] : ''; ?>" placeholder="Enter Password" required>
           <input type="checkbox" class="check-box"><span>I agree the terms and condition</span>
-          <button type="submit"  name="submitreg" class="submit-btn">Register</button>
+          <a href="profileS.php"><button type="submit"  name="submitreg" class="submit-btn">Register</button></a>
+         
+          
         </form>
 
 
