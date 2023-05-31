@@ -187,6 +187,59 @@ tbody tr.hide td img {
 }
 
 
+
+.btnA {
+    cursor: pointer;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600px;
+    width: 100px;
+    height: 50px;
+    padding: 10px 10px;
+    border: 1px solid;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: rgb(0, 0, 0);
+    background-color: rgb(125, 227, 143);
+  }
+  
+
+  .btnA:hover {
+    transform: scale(1.2);
+}
+.hide {
+    display: none;
+  }
+.btnR {
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600px;
+    width: 100px;
+    height: 50px;
+    padding: 10px 10px;
+    border: 1px solid;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: rgb(0, 0, 0);
+    background-color: rgb(237, 96, 96);
+  }
+  
+
+  .btnR:hover {
+    transform: scale(1.2);
+}
+
+
 @media (max-width: 1000px) {
     td:not(:first-of-type) {
         min-width: 12.1rem;
