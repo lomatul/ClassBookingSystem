@@ -1,6 +1,6 @@
 # COURSE TITLE: DATABASE MANAGEMENT SYSTEM LAB-II :computer:
 # COURSE CODE: CSE 4410
-## PROJECT TITLE: CLASSBOOKING SYSTEM :ear_of_rice:
+## PROJECT TITLE: CLASSBOOKING SYSTEM 
 
 ## Current Phase :
 ```
@@ -10,7 +10,7 @@ DONE
 ## Group Members :
  #### Dayan Ahmed Khan ID-200042105
  #### Lomatul Mahzabin ID-200042113
- #### Zayed Hasan ID-200042134
+ #### Zayed Hasan ID-200042153
 
  
 
