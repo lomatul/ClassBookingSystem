@@ -14,10 +14,10 @@
         // $sqlbked=mysqli_query($conn, $sqlin2);
         if($sql){ 
             echo
-            "<script> alert('Request Sent'); window.location.href='routine.php'; </script> ";
+            "<script> alert('Request Sent'); window.location.href='S_DashBoard.php'; </script> ";
         }else{
             echo 
-            "<script> alert('Request failed'); window.location.href='routine.php'; </script> ";
+            "<script> alert('Request failed'); window.location.href='S_DashBoard.php'; </script> ";
         }
             
             

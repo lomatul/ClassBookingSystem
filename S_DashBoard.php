@@ -68,7 +68,7 @@ $result2=mysqli_query($conn, $sql2);
                 </div>
                 <hr>
 
-                <a href="profileS.html" class="sub-menu-link">
+                <a href="profileS.php" class="sub-menu-link">
                   <img src="./assets/images/profile.png">
                   <p>Show profile</p>
                   <span></span>
@@ -139,7 +139,7 @@ $result2=mysqli_query($conn, $sql2);
                       echo "approved";
                 }else if($rows['approved']==0){
                   echo "Rejected";
-                }else if($rows['approved']==NULL){
+                }else {
                   echo "Pending";
                 } ?></td>
           </tr>
