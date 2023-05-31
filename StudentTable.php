@@ -46,7 +46,7 @@ $result2=mysqli_query($conn, $sql2);
     <main class="table">
         <section class="table__header">
             <h1>Pending Request's</h1>
-            <div class="input-group">
+            <!-- <div class="input-group">
                 <input type="search" placeholder="Search Data...">
                 <img src="./assets/images/search.png" alt="">
             </div>
@@ -60,7 +60,7 @@ $result2=mysqli_query($conn, $sql2);
                     <label for="export-file" id="toCSV">CSV <img src="images/csv.png" alt=""></label>
                     <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></label>
                 </div>
-            </div>
+            </div> -->
         </section>
         <section class="table__body">
             <table>
@@ -89,14 +89,16 @@ $result2=mysqli_query($conn, $sql2);
           <td><?php echo $rows['Day']; ?></td>
           <td><?php echo date("h:i A", strtotime($rowS['Start_time']))." - ".date("h:i A", strtotime($rowS['End_time']))?></td>
           <td><?php echo $rowC['Room_No']?></td>
-          <td><?php if($rows['approved']==1){
+          <td>
+            <?php if($rows['approved']==1){
                       echo "approved";
                 }else if($rows['approved']==0){
                   echo "Rejected";
                 }else {
                   echo "Pending";
-                } ?></td>
-          </tr>
+                } ?>
+          </td>
+        </tr>
   
           <?php }
           ?>
