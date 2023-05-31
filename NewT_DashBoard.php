@@ -1,25 +1,20 @@
 <?php
-require 'config.php';
-session_start();
-
-$ID=$_SESSION["ID"];
-$sql1="SELECT * From cr WHERE ID='$ID'";
-$result1=mysqli_query($conn, $sql1);
-$row=mysqli_fetch_array($result1);
-$name=$row['Name'];
-
-if (isset($_POST['search'])) {
-    $tag = $_POST["searx"];
-    $sql3="SELECT * FROM classroom WHERE Room_No=$tag";
-    $result3=mysqli_query($conn, $sql3);
-    $row3=mysqli_fetch_array($result3);
-    $CID=$row3['classroom_ID'];   
-    header("location: routine.php?tag=$CID&room=$tag");
-}
-
-$sql2 = "SELECT * FROM booking_request br,booking b WHERE br.booking_ID = b.booking_ID AND br.cr_ID = '$ID' ORDER BY req_ID DESC LIMIT 3";
-$result2=mysqli_query($conn, $sql2);
-
+      require 'config.php';
+      session_start();
+      $TID=$_SESSION["ID"];
+      $sqlname="SELECT * From teacher WHERE ID='$TID'";
+      $resultname=mysqli_query($conn, $sqlname);
+      $rowName=mysqli_fetch_array($resultname);
+      $name=$rowName['Name'];
+      $query="SELECT * FROM booking_request WHERE teacher_ID='$TID' AND approved IS NULL";
+      $result=mysqli_query($conn, $query);
+      if(mysqli_num_rows($result)>0){
+        $check=true;
+      }else{
+        $check=false;
+        echo "<script> alert('No result found'); </script> ";
+      }
+    
 ?>
 
 <!DOCTYPE html>
@@ -80,16 +75,6 @@ $result2=mysqli_query($conn, $sql2);
     </div>
   </nav>
 
-  <div class="search-container">
-  <h3>Search Classroom for booking</h3>
-  <form action="#" method="post" class="search-form">
-    <div class="search">
-      <input type="search" name="searx" id="searx" placeholder="Search Room no">
-      <button type="submit" name="search"><i class="fa fa-search icon-search"></i></button>
-    </div>
-  </form>
-</div>
-
     <main class="table">
         <section class="table__header">
             <h1>Pending Request's</h1>
@@ -120,38 +105,32 @@ $result2=mysqli_query($conn, $sql2);
                       </tr>
                 </thead>
                 <tbody>
-
                 <?php
-            while($rows=$result2->fetch_assoc()){
-              $slotID=$rows['Slot_ID'];
-              $sqlS="SELECT * FROM slot WHERE Slot_ID='$slotID'";
-              $resultS=mysqli_query($conn, $sqlS);
-              $rowS=mysqli_fetch_array($resultS);
-              $classID=$rows['classroom_ID'];
-              $sqlC="SELECT * FROM classroom WHERE classroom_ID='$classID'";
-              $resultC=mysqli_query($conn, $sqlC);
-              $rowC=mysqli_fetch_array($resultC);
+          while($rows=$result->fetch_assoc()){
+            $ID=$rows['booking_ID'];
+            $sqlb="SELECT * FROM booking WHERE booking_ID=$ID";
+            $resultB=mysqli_query($conn, $sqlb);
+            $rowB=mysqli_fetch_array($resultB);
+            $slotID=$rowB['Slot_ID'];
+            $sqlS="SELECT * FROM slot WHERE Slot_ID='$slotID'";
+            $resultS=mysqli_query($conn, $sqlS);
+            $rowS=mysqli_fetch_array($resultS);
+            $classID=$rowB['classroom_ID'];
+            $sqlC="SELECT * FROM classroom WHERE classroom_ID='$classID'";
+            $resultC=mysqli_query($conn, $sqlC);
+            $rowC=mysqli_fetch_array($resultC);
           ?>
-       <tr>
-          <td><?php echo $rows['Day']; ?></td>
-          <td><?php echo date("h:i A", strtotime($rowS['Start_time']))." - ".date("h:i A", strtotime($rowS['End_time']))?></td>
-          <td><?php echo $rowC['Room_No']?></td>
-          <td>
-            <?php
-              if ($rows['approved'] == 1) {
-                echo '<p class="status approved">Approved</p>';
-              } else if ($rows['approved'] == 0) {
-                echo '<p class="status rejected">Rejected</p>';
-              } else {
-                echo '<p class="status pending">Pending</p>';
-              }
-            ?>
-          </td>
 
-        </tr>
-  
-          <?php }
-          ?>
+       <tr>
+            <td><?php echo $rowB['Day'] ?></td>
+            <td><?php echo date("h:i A", strtotime($rowS['Start_time']))." - ".date("h:i A", strtotime($rowS['End_time']))?></td>
+            <td><?php echo $rowC['Room_No']?></td>
+            <td>
+              <button type="submit" class="btnA" onclick="toggleButtonVisibility(this); redirectToPage(<?php echo $ID ?>, 1)">Approved</button>
+              <button type="submit" class="btnR" onclick="toggleButtonVisibility(this); redirectToPage(<?php echo $ID ?>, 0)">Reject</button>
+            </td>
+          </tr>
+          <?php } ?>
          
              
                    

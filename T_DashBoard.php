@@ -16,6 +16,7 @@
       }
     
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -167,10 +168,7 @@
   function redirectToPage(value1, value2) {
   window.location.href = "requests_handle.php?id="+value1+"&action="+value2;
   }
-</script>
 
-
-<script>
   
  function toggleButtonVisibility(button) {
     var siblingButton = button.parentElement.querySelector(button.classList.contains("btnA") ? ".btnR" : ".btnA");
