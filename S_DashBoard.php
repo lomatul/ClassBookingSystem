@@ -12,9 +12,14 @@ if (isset($_POST['search'])) {
     $tag = $_POST["searx"];
     $sql3="SELECT * FROM classroom WHERE Room_No=$tag";
     $result3=mysqli_query($conn, $sql3);
-    $row3=mysqli_fetch_array($result3);
-    $CID=$row3['classroom_ID'];   
-    header("location: routine.php?tag=$CID&room=$tag");
+    if(mysqli_num_rows($result3)>0){
+      $row3=mysqli_fetch_array($result3);
+      $CID=$row3['classroom_ID'];   
+      header("location: routine.php?tag=$CID&room=$tag");
+    }else{
+      header("location: NotFound.html");
+    }
+    
 }
 
 $sql2 = "SELECT * FROM booking_request br,booking b WHERE br.booking_ID = b.booking_ID AND br.cr_ID = '$ID' ORDER BY req_ID DESC LIMIT 3";
@@ -183,6 +188,22 @@ function toggleButtonVisibility(button) {
 }
 
 
+  //   let subMenu = document.getElementById("subMenu");
+  
+  //   function toggleMenu()
+  //   {
+  //     subMenu.classList.toggle("open-menu");
+  //   }
+  //   function redirectToPage(value1, value2) {
+  //   window.location.href = "requests_handle.php?id="+value1+"&action="+value2;
+  //   }
+  
+    
+  //  function toggleButtonVisibility(button) {
+  //     var siblingButton = button.parentElement.querySelector(button.classList.contains("btnA") ? ".btnR" : ".btnA");
+  //     siblingButton.style.display = siblingButton.style.display === "none" ? "block" : "none";
+  //     button.disabled = true;
+  //   }
   </script>
 </body>
 </html>
