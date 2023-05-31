@@ -1,5 +1,6 @@
 body {
     font-family: 'Acme', sans-serif;
+    font-size: 15px;
     background: #f0f1f7;
     min-height: 100vh;
     display: flex;

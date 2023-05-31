@@ -3,6 +3,7 @@ body {
     padding: 0;
     min-height: 100vh;
     font-family: 'Acme', sans-serif;
+    font-size: 15px;
   }
   
   .container {

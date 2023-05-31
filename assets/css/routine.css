@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Acme', sans-serif;
+    font-size: 15px;
     box-sizing: border-box;
 }
 .hero{
@@ -149,9 +150,11 @@ max-height: 400px;
 }
 
 table{
-    margin-top: 100px;
+    border: 2px solid black;
+    margin-top: 50px;
     margin-left: 50px;
     border-spacing: 0;
+    border-radius: 4px;
     float: center;
     width: 80%;
 }
@@ -176,13 +179,14 @@ table{
     width: 150px;
     height: 80px;
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 0; /* Remove any default padding */
     border-radius: 4px;
   }
   
   .row {
-    background-color: rgb(109, 184, 237);
+    height: 50px;
+    background-color: rgb(138, 197, 240);
     text-align: center;
   }
   
@@ -249,7 +253,7 @@ table{
 
 th{
     height: 30px;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 4px;
 }
 
