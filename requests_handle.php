@@ -5,7 +5,7 @@
     if($action==1){
         $insert="INSERT INTO booked (booking_ID) VALUES ($bookingID)";
         $sql=mysqli_query($conn, $insert);
-        $updt="UPDATE booking_request SET approved=true WHERE booking_ID = $bookingID";
+        $updt="UPDATE booking_request SET approved=1 WHERE booking_ID = $bookingID";
         $check=mysqli_query($conn, $updt);
         if($sql&&$check){ 
             echo
@@ -15,7 +15,7 @@
              "<script> alert('Request approval failed'); window.location.href='T_DashBoard.php'; </script> ";
           }
     }else if($action==0){
-        $updt="UPDATE booking_request SET approved=false WHERE booking_ID = $bookingID";
+        $updt="UPDATE booking_request SET approved=0 WHERE booking_ID = $bookingID";
         $check=mysqli_query($conn, $updt);
         if($check){ 
             echo

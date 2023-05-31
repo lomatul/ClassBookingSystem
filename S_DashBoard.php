@@ -14,7 +14,7 @@ if (isset($_POST['search'])) {
     $result3=mysqli_query($conn, $sql3);
     $row3=mysqli_fetch_array($result3);
     $CID=$row3['classroom_ID'];   
-    header("location: routine.php?tag=$CID");
+    header("location: routine.php?tag=$CID&room=$tag");
 }
 
 $sql2 = "SELECT * FROM booking_request br,booking b WHERE br.booking_ID = b.booking_ID AND br.cr_ID = '$ID' ORDER BY req_ID DESC LIMIT 3";

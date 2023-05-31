@@ -8,7 +8,7 @@
     $result=mysqli_query($conn, $query);
     if (isset($_POST['submit'])) {
         $selectedTeacherID = $_POST['selectedNummer'];
-        $sqlin="INSERT INTO booking_request (booking_ID, cr_ID, teacher_ID) VALUES ($bookingID, '$SID', '$selectedTeacherID')";
+        $sqlin="INSERT INTO booking_request (booking_ID, cr_ID, teacher_ID, approved) VALUES ($bookingID, '$SID', '$selectedTeacherID', 2)";
         // $sqlin2="INSERT INTO booked (booking_ID) VALUES ($bookingID)"
         $sql=mysqli_query($conn, $sqlin);
         // $sqlbked=mysqli_query($conn, $sqlin2);

@@ -3,6 +3,7 @@
   session_start();
   $SID=$_SESSION["ID"];
   $ID=$_GET['tag'];
+  $ROOMDASH=$_GET['room'];
   $sqlname="SELECT * From cr WHERE ID='$SID'";
   $resultname=mysqli_query($conn, $sqlname);
   $rowName=mysqli_fetch_array($resultname);
@@ -230,7 +231,7 @@
         <h1>
             Class Routine
           </h1>
-            <h3>Room No 302</h3>
+            <h3>Room No <?php echo $ROOMDASH ?></h3>
          
 
            </ul>
@@ -282,7 +283,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is not Booked</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['01'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['01'] ?>)"><?php echo $mapIDM['01'] ?></button>
                       <button type="button" onclick="closePopup('popup2')">No</button>
                     </div>
             </td> <?php } ?>
@@ -314,7 +315,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['02'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['02'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                   </div>
             </td> <?php } ?>
@@ -336,7 +337,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['03'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['03'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -359,7 +360,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['04'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['04'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -384,7 +385,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['05'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['05'] ?>)">YES</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -407,7 +408,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['06'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['06'] ?>)"><?php echo $mapIDM['06'] ?></button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td> <?php } ?>
@@ -446,7 +447,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is not Booked</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['01'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['01'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">No</button>
                     </div>
             </td> <?php } ?>
@@ -478,7 +479,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['02'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['02'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                   </div>
             </td> <?php } ?>
@@ -500,7 +501,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['03'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['03'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -523,7 +524,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['04'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['04'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -548,7 +549,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['05'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['05'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -571,7 +572,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['06'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['06'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td> <?php } ?>
@@ -608,7 +609,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is not Booked</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['01'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['01'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">No</button>
                     </div>
             </td> <?php } ?>
@@ -640,7 +641,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['02'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['02'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                   </div>
             </td> <?php } ?>
@@ -662,7 +663,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['03'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['03'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -685,7 +686,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['04'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['04'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -710,7 +711,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['05'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['05'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -733,7 +734,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['06'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['06'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td> <?php } ?>
@@ -770,7 +771,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is not Booked</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['01'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['01'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">No</button>
                     </div>
             </td> <?php } ?>
@@ -802,7 +803,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['02'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['02'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                   </div>
             </td> <?php } ?>
@@ -824,7 +825,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['03'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['03'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -847,7 +848,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['04'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['04'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -872,7 +873,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['05'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['05'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -895,7 +896,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['06'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['06'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td> <?php } ?>
@@ -933,7 +934,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is not Booked</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['01'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['01'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">No</button>
                     </div>
             </td> <?php } ?>
@@ -965,7 +966,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['02'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['02'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                   </div>
             </td> <?php } ?>
@@ -987,7 +988,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['03'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['03'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -1010,7 +1011,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['04'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['04'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -1035,7 +1036,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['05'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['05'] ?>)" >Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -1058,7 +1059,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['06'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['06'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td> <?php } ?>
@@ -1119,13 +1120,6 @@ function closePopup(popupId) {
   });
 }
 </script>
-
-
-
-
-
-
-
 
 </body>
 </html>

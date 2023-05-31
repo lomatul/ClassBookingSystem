@@ -6,7 +6,7 @@
       $resultname=mysqli_query($conn, $sqlname);
       $rowName=mysqli_fetch_array($resultname);
       $name=$rowName['Name'];
-      $query="SELECT * FROM booking_request WHERE teacher_ID='$TID' AND approved IS NULL";
+      $query="SELECT * FROM booking_request WHERE teacher_ID='$TID' AND approved=2";
       $result=mysqli_query($conn, $query);
       if(mysqli_num_rows($result)>0){
         $check=true;
