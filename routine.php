@@ -140,7 +140,7 @@
                 $BookingIDF=$rowsF['booking_ID'];
                 $mapF[$keyv]=false;
                 $mapIDF[$keyv]=$BookingIDF;
-                $sqlRF="SELECT * FROM booking_request WHERE booking_ID=$BookingIDF AND approved IS NULL";
+                $sqlRF="SELECT * FROM booking_request WHERE booking_ID=$BookingIDF AND approved=2";
                 $resultRF=mysqli_query($conn, $sqlRF);
                 if(mysqli_num_rows($resultRF)>0){
                   $mapFpend[$keyv]=true;
@@ -330,7 +330,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapMpend['03']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupM4')">Submit</button>
                     <div class="PopUp" id="popupM4">
@@ -353,7 +363,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapMpend['04']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupM5')">Submit</button>
                     <div class="PopUp" id="popupM5">
@@ -378,7 +398,17 @@
                       <button type="submit" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapMpend['05']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupM6')">Submit</button>
                     <div class="PopUp" id="popupM6">
@@ -401,7 +431,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapMpend['06']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupM7')">Submit</button>
                     <div class="PopUp" id="popupM7">
@@ -494,7 +534,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapTpend['03']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupT4')">Submit</button>
                     <div class="PopUp" id="popupT4">
@@ -517,7 +567,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapTpend['04']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupT5')">Submit</button>
                     <div class="PopUp" id="popupT5">
@@ -542,7 +602,17 @@
                       <button type="submit" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapTpend['05']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupT6')">Submit</button>
                     <div class="PopUp" id="popupT6">
@@ -565,7 +635,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapTpend['06']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupT7')">Submit</button>
                     <div class="PopUp" id="popupT7">
@@ -656,7 +736,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapWpend['03']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupW4')">Submit</button>
                     <div class="PopUp" id="popupW4">
@@ -679,7 +769,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapWpend['04']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupW5')">Submit</button>
                     <div class="PopUp" id="popupW5">
@@ -704,7 +804,17 @@
                       <button type="submit" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapWpend['05']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupW6')">Submit</button>
                     <div class="PopUp" id="popupW6">
@@ -727,7 +837,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapWpend['06']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupW7')">Submit</button>
                     <div class="PopUp" id="popupW7">
@@ -818,7 +938,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapThpend['03']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupB4')">Submit</button>
                     <div class="PopUp" id="popupB4">
@@ -841,7 +971,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapThpend['04']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupB5')">Submit</button>
                     <div class="PopUp" id="popupB5">
@@ -866,7 +1006,17 @@
                       <button type="submit" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapThpend['05']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupB6')">Submit</button>
                     <div class="PopUp" id="popupB6">
@@ -889,7 +1039,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapThpend['06']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupB7')">Submit</button>
                     <div class="PopUp" id="popupB7">
@@ -981,7 +1141,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapFpend['03']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupF4')">Submit</button>
                     <div class="PopUp" id="popupF4">
@@ -1004,7 +1174,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapFpend['04']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupF5')">Submit</button>
                     <div class="PopUp" id="popupF5">
@@ -1029,7 +1209,17 @@
                       <button type="submit" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapFpend['05']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupF6')">Submit</button>
                     <div class="PopUp" id="popupF6">
@@ -1052,7 +1242,17 @@
                       <button type="button" onclick="closePopup('popup1')">Okay</button>
                     </div>
                   </td>
-                  <?php } else { ?>
+                  <?php } else if($mapFpend['06']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
                     <td class="not-booked">
                     <button type="submit" class="btn" onclick="openPopup('popupF7')">Submit</button>
                     <div class="PopUp" id="popupF7">
