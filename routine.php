@@ -47,19 +47,19 @@
       '01'=>NULL,'02'=>NULL,'03'=>NULL,'04'=>NULL,'05'=>NULL,'06'=>NULL
     );
     $sqlT="SELECT * FROM booking WHERE classroom_ID=$ID AND Day='Tuesday' AND booking_ID NOT IN (SELECT booking_ID FROM booked)";
-    $resultT=mysqli_query($conn, $sqlM);
+    $resultT=mysqli_query($conn, $sqlT);
       if(mysqli_num_rows($resultT)>0){
         while($rowsT=$resultT->fetch_assoc()){
-          $keyv=$rowsT['Slot_ID'];
+          $keyvT=$rowsT['Slot_ID'];
           $BookingIDT=$rowsT['booking_ID'];
-          $mapT[$keyv]=false;
-          $mapIDT[$keyv]=$BookingIDT;
+          $mapT[$keyvT]=false;
+          $mapIDT[$keyvT]=$BookingIDT;
           $sqlRT="SELECT * FROM booking_request WHERE booking_ID=$BookingIDT AND approved IS NULL";
           $resultRT=mysqli_query($conn, $sqlRT);
           if(mysqli_num_rows($resultRT)>0){
-            $mapTpend[$keyv]=true;
+            $mapTpend[$keyvT]=true;
           }else{
-            $mapTpend[$keyv]=false;
+            $mapTpend[$keyvT]=false;
           }
           
         }
@@ -107,7 +107,7 @@
           if(mysqli_num_rows($resultTh)>0){
             while($rowsTh=$resultTh->fetch_assoc()){
               $keyv=$rowsTh['Slot_ID'];
-              $BookingID=$rowsTh['booking_ID'];
+              $BookingIDTh=$rowsTh['booking_ID'];
               $mapTh[$keyv]=false;
               $mapIDTh[$keyv]=$BookingIDTh;
               $sqlRTh="SELECT * FROM booking_request WHERE booking_ID=$BookingIDTh AND approved IS NULL";
@@ -140,7 +140,7 @@
                 $mapF[$keyv]=false;
                 $mapIDF[$keyv]=$BookingIDF;
                 $sqlRF="SELECT * FROM booking_request WHERE booking_ID=$BookingIDF AND approved IS NULL";
-                $resultRM=mysqli_query($conn, $sqlRF);
+                $resultRF=mysqli_query($conn, $sqlRF);
                 if(mysqli_num_rows($resultRF)>0){
                   $mapFpend[$keyv]=true;
                 }else{
@@ -282,12 +282,10 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is not Booked</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['01'] ?>)" name="req">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">No</button>
                     </div>
             </td> <?php } ?>
-
-
 
             <?php
             if($mapM['02']){?> 
@@ -321,17 +319,6 @@
                   </div>
             </td> <?php } ?>
 
-
-
-
-
-
-
-
-
-
-
-
             <?php
             if($mapM['03']){?> 
               <td class="booked">
@@ -349,7 +336,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['03'] ?>)" name="req">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -372,7 +359,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['04'] ?>)" name="req">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -397,7 +384,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['05'] ?>)" name="req">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td>  <?php } ?>
@@ -420,7 +407,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['06'] ?>)">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['06'] ?>)" name="req">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td> <?php } ?>
@@ -430,78 +417,652 @@
       
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <tr>
                 <td>Tuesday</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <?php
+            if($mapT['01']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else if($mapTpend['01']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is not Booked</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['01'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">No</button>
+                    </div>
+            </td> <?php } ?>
+
+            <?php
+            if($mapT['02']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else if($mapTpend['02']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2" >
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['02'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                  </div>
+            </td> <?php } ?>
+
+            <?php
+            if($mapT['03']){?> 
+              <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['03'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
+            <?php
+            if($mapT['04']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['04'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+            <td></td>
+
+
+            <?php
+            if($mapT['05']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="submit" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['05'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
+            <?php
+            if($mapT['06']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDT['06'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td> <?php } ?>
                 </tr>
 
   
 
               <tr>
                 <td>Wednesday</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <?php
+            if($mapW['01']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else if($mapWpend['01']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is not Booked</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['01'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">No</button>
+                    </div>
+            </td> <?php } ?>
+
+            <?php
+            if($mapW['02']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else if($mapWpend['02']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2" >
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['02'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                  </div>
+            </td> <?php } ?>
+
+            <?php
+            if($mapW['03']){?> 
+              <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['03'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
+            <?php
+            if($mapW['04']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['04'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+            <td></td>
+
+
+            <?php
+            if($mapW['05']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="submit" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['05'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
+            <?php
+            if($mapW['06']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDW['06'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td> <?php } ?>
+
                 </tr>
 
 
               <tr>
                   <td>Thursday</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <?php
+            if($mapTh['01']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else if($mapThpend['01']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is not Booked</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['01'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">No</button>
+                    </div>
+            </td> <?php } ?>
+
+            <?php
+            if($mapTh['02']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else if($mapThpend['02']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2" >
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['02'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                  </div>
+            </td> <?php } ?>
+
+            <?php
+            if($mapTh['03']){?> 
+              <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['03'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
+            <?php
+            if($mapTh['04']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['04'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+            <td></td>
+
+
+            <?php
+            if($mapTh['05']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="submit" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['05'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
+            <?php
+            if($mapTh['06']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDTh['06'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td> <?php } ?>
+
               </tr>
+
+
 
               <tr>
                     <td>Friday</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <?php
+            if($mapF['01']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else if($mapFpend['01']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is not Booked</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['01'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">No</button>
+                    </div>
+            </td> <?php } ?>
+
+            <?php
+            if($mapF['02']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else if($mapFpend['02']){ ?>
+                    <td class="booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class Booking is pending</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } 
+                  else { ?>
+                  <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2" >
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['02'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                  </div>
+            </td> <?php } ?>
+
+            <?php
+            if($mapF['03']){?> 
+              <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['03'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
+            <?php
+            if($mapF['04']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['04'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+            <td></td>
+
+
+            <?php
+            if($mapF['05']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="submit" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['05'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td>  <?php } ?>
+
+
+            <?php
+            if($mapF['06']){?> 
+            <td class="booked">
+                  <button type="submit" class="btn" onclick="openPopup('popup1')">Submit</button>
+                    <div class="PopUp" id="popup1">
+                      <img src="./assets/images/booked.png" alt="">
+                      <h2>This class  Booked</h2>
+                      <button type="button" onclick="closePopup('popup1')">Okay</button>
+                    </div>
+                  </td>
+                  <?php } else { ?>
+                    <td class="not-booked">
+                    <button type="submit" class="btn" onclick="openPopup('popup2')">Submit</button>
+                    <div class="PopUp" id="popup2">
+                      <img src="./assets/images/notbooked.png" alt="">
+                      <h2>This class is Available</h2>
+                      <p>Do you want to book the Class?</p>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDF['06'] ?>)" name="req">Yes</button>
+                      <button type="button" onclick="closePopup('popup2')">N0</button>
+                    </div>
+            </td> <?php } ?>
+                   
               </tr>
         
           </table>

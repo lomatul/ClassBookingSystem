@@ -81,7 +81,7 @@
                   <span></span>
                 </a>
 
-                <a href="#" class="sub-menu-link">
+                <a href="LogOUT.php" class="sub-menu-link">
                   <img src="./assets/images/logout.png">
                   <p>Log Out</p>
                   <span></span>
