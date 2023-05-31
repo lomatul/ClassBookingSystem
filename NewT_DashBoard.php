@@ -27,6 +27,7 @@
   <title>home</title>
 
   <link rel="stylesheet" href="./assets/css/table.css">
+  <link rel="stylesheet" href="./assets/css/nav.css">
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +38,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <img src="./assets/images/user.png" class="user-pic" onclick="toggleMenu()">
+    <div class="sub-menu-wrap" id="subMenu">
+      <div class="sub-menu">
+        <div class="user-info">
+          <img src="./assets/images/user.png">
+          <h2><?php echo $name ?></h2>
+        </div>
+        <hr>
+        <a href="profileS.php" class="sub-menu-link">
+          <img src="./assets/images/profile.png">
+          <p>Show profile</p>
+          <span></span>
+        </a>
+        <a href="#" class="sub-menu-link">
+          <img src="./assets/images/setting.png">
+          <p>Settings and Privacy</p>
+          <span></span>
+        </a>
+        <a href="#" class="sub-menu-link">
+          <img src="./assets/images/help.png">
+          <p>Help and Support</p>
+          <span></span>
+        </a>
+        <a href="logout.php" class="sub-menu-link">
+          <img src="./assets/images/logout.png">
+          <p>Log Out</p>
+          <span></span>
+        </a>
+      </div>
+    </div>
+  </nav>
 
     <main class="table">
         <section class="table__header">
@@ -68,24 +105,23 @@
                       </tr>
                 </thead>
                 <tbody>
+                <?php
+          while($rows=$result->fetch_assoc()){
+            $ID=$rows['booking_ID'];
+            $sqlb="SELECT * FROM booking WHERE booking_ID=$ID";
+            $resultB=mysqli_query($conn, $sqlb);
+            $rowB=mysqli_fetch_array($resultB);
+            $slotID=$rowB['Slot_ID'];
+            $sqlS="SELECT * FROM slot WHERE Slot_ID='$slotID'";
+            $resultS=mysqli_query($conn, $sqlS);
+            $rowS=mysqli_fetch_array($resultS);
+            $classID=$rowB['classroom_ID'];
+            $sqlC="SELECT * FROM classroom WHERE classroom_ID='$classID'";
+            $resultC=mysqli_query($conn, $sqlC);
+            $rowC=mysqli_fetch_array($resultC);
+          ?>
 
-                    <?php
-                    while($rows=$result->fetch_assoc()){
-                      $ID=$rows['booking_ID'];
-                      $sqlb="SELECT * FROM booking WHERE booking_ID=$ID";
-                      $resultB=mysqli_query($conn, $sqlb);
-                      $rowB=mysqli_fetch_array($resultB);
-                      $slotID=$rowB['Slot_ID'];
-                      $sqlS="SELECT * FROM slot WHERE Slot_ID='$slotID'";
-                      $resultS=mysqli_query($conn, $sqlS);
-                      $rowS=mysqli_fetch_array($resultS);
-                      $classID=$rowB['classroom_ID'];
-                      $sqlC="SELECT * FROM classroom WHERE classroom_ID='$classID'";
-                      $resultC=mysqli_query($conn, $sqlC);
-                      $rowC=mysqli_fetch_array($resultC);
-                    ?>
-
-                  <tr>
+       <tr>
             <td><?php echo $rowB['Day'] ?></td>
             <td><?php echo date("h:i A", strtotime($rowS['Start_time']))." - ".date("h:i A", strtotime($rowS['End_time']))?></td>
             <td><?php echo $rowC['Room_No']?></td>
@@ -95,7 +131,6 @@
             </td>
           </tr>
           <?php } ?>
-     
          
              
                    
@@ -109,22 +144,24 @@
 
     
 <script>
-    let subMenu = document.getElementById("subMenu");
-  
-    function toggleMenu()
-    {
-      subMenu.classList.toggle("open-menu");
-    }
-    function redirectToPage(value1, value2) {
-    window.location.href = "requests_handle.php?id="+value1+"&action="+value2;
-    }
-  
-    
-   function toggleButtonVisibility(button) {
-      var siblingButton = button.parentElement.querySelector(button.classList.contains("btnA") ? ".btnR" : ".btnA");
-      siblingButton.style.display = siblingButton.style.display === "none" ? "block" : "none";
-      button.disabled = true;
-    }
+
+let subMenu = document.getElementById("subMenu");
+
+function toggleMenu() {
+  subMenu.classList.toggle("open-menu");
+}
+
+function redirectToPage(value1, value2) {
+  window.location.href = "requests_handle.php?id=" + value1 + "&action=" + value2;
+}
+
+function toggleButtonVisibility(button) {
+  var siblingButton = button.parentElement.querySelector(button.classList.contains("btnA") ? ".btnR" : ".btnA");
+  siblingButton.style.display = siblingButton.style.display === "none" ? "block" : "none";
+  button.disabled = true;
+}
+
+
   </script>
 </body>
 </html>

@@ -32,6 +32,7 @@ $result2=mysqli_query($conn, $sql2);
   <title>home</title>
 
   <link rel="stylesheet" href="./assets/css/table.css">
+  <link rel="stylesheet" href="./assets/css/nav.css">
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,11 +43,57 @@ $result2=mysqli_query($conn, $sql2);
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <img src="./assets/images/user.png" class="user-pic" onclick="toggleMenu()">
+    <div class="sub-menu-wrap" id="subMenu">
+      <div class="sub-menu">
+        <div class="user-info">
+          <img src="./assets/images/user.png">
+          <h2><?php echo $name ?></h2>
+        </div>
+        <hr>
+        <a href="profileS.php" class="sub-menu-link">
+          <img src="./assets/images/profile.png">
+          <p>Show profile</p>
+          <span></span>
+        </a>
+        <a href="#" class="sub-menu-link">
+          <img src="./assets/images/setting.png">
+          <p>Settings and Privacy</p>
+          <span></span>
+        </a>
+        <a href="#" class="sub-menu-link">
+          <img src="./assets/images/help.png">
+          <p>Help and Support</p>
+          <span></span>
+        </a>
+        <a href="logout.php" class="sub-menu-link">
+          <img src="./assets/images/logout.png">
+          <p>Log Out</p>
+          <span></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="search-container">
+  <h3>Search Classroom for booking</h3>
+  <form action="#" method="post" class="search-form">
+    <div class="search">
+      <input type="search" name="searx" id="searx" placeholder="Search Room no">
+      <button type="submit" name="search"><i class="fa fa-search icon-search"></i></button>
+    </div>
+  </form>
+</div>
 
     <main class="table">
         <section class="table__header">
             <h1>Pending Request's</h1>
-            <!-- <div class="input-group">
+            <div class="input-group">
                 <input type="search" placeholder="Search Data...">
                 <img src="./assets/images/search.png" alt="">
             </div>
@@ -60,7 +107,7 @@ $result2=mysqli_query($conn, $sql2);
                     <label for="export-file" id="toCSV">CSV <img src="images/csv.png" alt=""></label>
                     <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></label>
                 </div>
-            </div> -->
+            </div>
         </section>
         <section class="table__body">
             <table>
@@ -90,14 +137,17 @@ $result2=mysqli_query($conn, $sql2);
           <td><?php echo date("h:i A", strtotime($rowS['Start_time']))." - ".date("h:i A", strtotime($rowS['End_time']))?></td>
           <td><?php echo $rowC['Room_No']?></td>
           <td>
-            <?php if($rows['approved']==1){
-                      echo "approved";
-                }else if($rows['approved']==0){
-                  echo "Rejected";
-                }else {
-                  echo "Pending";
-                } ?>
+            <?php
+              if ($rows['approved'] == 1) {
+                echo '<p class="status approved">Approved</p>';
+              } else if ($rows['approved'] == 0) {
+                echo '<p class="status rejected">Rejected</p>';
+              } else {
+                echo '<p class="status pending">Pending</p>';
+              }
+            ?>
           </td>
+
         </tr>
   
           <?php }
@@ -115,22 +165,40 @@ $result2=mysqli_query($conn, $sql2);
 
     
 <script>
-    let subMenu = document.getElementById("subMenu");
+
+let subMenu = document.getElementById("subMenu");
+
+function toggleMenu() {
+  subMenu.classList.toggle("open-menu");
+}
+
+function redirectToPage(value1, value2) {
+  window.location.href = "requests_handle.php?id=" + value1 + "&action=" + value2;
+}
+
+function toggleButtonVisibility(button) {
+  var siblingButton = button.parentElement.querySelector(button.classList.contains("btnA") ? ".btnR" : ".btnA");
+  siblingButton.style.display = siblingButton.style.display === "none" ? "block" : "none";
+  button.disabled = true;
+}
+
+
+  //   let subMenu = document.getElementById("subMenu");
   
-    function toggleMenu()
-    {
-      subMenu.classList.toggle("open-menu");
-    }
-    function redirectToPage(value1, value2) {
-    window.location.href = "requests_handle.php?id="+value1+"&action="+value2;
-    }
+  //   function toggleMenu()
+  //   {
+  //     subMenu.classList.toggle("open-menu");
+  //   }
+  //   function redirectToPage(value1, value2) {
+  //   window.location.href = "requests_handle.php?id="+value1+"&action="+value2;
+  //   }
   
     
-   function toggleButtonVisibility(button) {
-      var siblingButton = button.parentElement.querySelector(button.classList.contains("btnA") ? ".btnR" : ".btnA");
-      siblingButton.style.display = siblingButton.style.display === "none" ? "block" : "none";
-      button.disabled = true;
-    }
+  //  function toggleButtonVisibility(button) {
+  //     var siblingButton = button.parentElement.querySelector(button.classList.contains("btnA") ? ".btnR" : ".btnA");
+  //     siblingButton.style.display = siblingButton.style.display === "none" ? "block" : "none";
+  //     button.disabled = true;
+  //   }
   </script>
 </body>
 </html>
