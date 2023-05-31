@@ -11,6 +11,15 @@
     // Perform actions for other days or times
     // echo "It is not Sunday at midnight.";
   }
+  session_start();
+  if(!empty($_SESSION["ID"])){
+      $check=false; 
+      $ID=$_SESSION["ID"];
+   
+  }
+  else{
+      $check=true;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,12 +127,18 @@
             </p>
 
             
-
+          <?php if($check){ ?>
             <a href="loginT.php"> <button class="btn btn-primary" >Get Started as Teacher</button></a>
 
             <a href="loginS.php"> <button class="btn btn-primary" >Get Started as Student</button></a>
 
-
+          <?php } else{
+            if($_SESSION["type"]==='S'){?>
+            <a href="profileS.php"> <button class="btn btn-primary" >Go TO PROFILE</button></a>
+          <?php }
+          else if($_SESSION["type"]==='T'){?>
+          <a href="profileT.php"> <button class="btn btn-primary" >Go TO PROFILE</button></a>
+          <?php }} ?>
           </div>
 
          

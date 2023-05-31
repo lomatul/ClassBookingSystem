@@ -23,6 +23,7 @@ if(isset($_POST['submitreg'])){
         if($sql){
           echo 
           $_SESSION["ID"]=$ID;
+          $_SESSION["type"]='T';
           echo
          "<script> alert('Registration Complete'); window.location.href='profileT.php'; </script> ";
         }else{
@@ -44,6 +45,7 @@ if(isset($_POST['submitreg'])){
             $row=mysqli_fetch_array($result);
             if((password_verify($password, $row['password']))&&($row['ID']==$ID)){
                 $_SESSION["ID"]=$row['ID'];
+                $_SESSION["type"]='T';
                 echo  
                 "<script> alert('login done'); window.location.href='profileT.php'; </script> ";
             }else{

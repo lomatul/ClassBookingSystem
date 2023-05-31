@@ -365,6 +365,10 @@ header .container {
   z-index: -1;
 }
 
+.btn-primary1 {
+  opacity: 0;
+  outline: none;
+}
 
 
 

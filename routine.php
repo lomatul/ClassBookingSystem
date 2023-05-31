@@ -1,6 +1,12 @@
 <?php
   require 'config.php';
+  session_start();
+  $SID=$_SESSION["ID"];
   $ID=$_GET['tag'];
+  $sqlname="SELECT * From cr WHERE ID='$SID'";
+  $resultname=mysqli_query($conn, $sqlname);
+  $rowName=mysqli_fetch_array($resultname);
+  $name=$rowName['Name'];
   //Monday
   $mapM=array(
     '01'=>true,'02'=>true,'03'=>true,'04'=>true,'05'=>true,'06'=>true
@@ -186,7 +192,7 @@
             <div class="sub-menu">
                 <div class="user-info">
                     <img src="./assets/images/user.png">
-                    <h2>Lomatul Mahzabin</h2>
+                    <h2><?php echo $name?></h2>
                 </div>
                 <hr>
 
@@ -414,7 +420,7 @@
                       <img src="./assets/images/notbooked.png" alt="">
                       <h2>This class is Available</h2>
                       <p>Do you want to book the Class?</p>
-                      <button type="button" onclick="closePopup('popup2')">Yes</button>
+                      <button type="button" onclick="redirectToPage(<?php echo $mapIDM['06'] ?>)">Yes</button>
                       <button type="button" onclick="closePopup('popup2')">N0</button>
                     </div>
             </td> <?php } ?>
@@ -516,6 +522,9 @@
   function toggleMenu()
   {
     subMenu.classList.toggle("open-menu");
+  }
+  function redirectToPage(value1) {
+  window.location.href = "Bookingrequest.php?id="+value1;
   }
 </script>
 
