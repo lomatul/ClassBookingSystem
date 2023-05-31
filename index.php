@@ -3,7 +3,7 @@
   $currentDay = date("l");
   $currentTime = date("H:i");
 
-  if($currentDay === "Monday" && $currentTime>"00:00" &&$currentTime<"01:00") {
+  if($currentDay === "Monday" && $currentTime>"00:00" &&$currentTime<"00:15") {
     // Perform your desired actions for Sunday at midnight
     $dlt="DELETE FROM booked WHERE booking_ID IN (SELECT booking_ID FROM booking_request)";
     $check2=mysqli_query($conn, $dlt);

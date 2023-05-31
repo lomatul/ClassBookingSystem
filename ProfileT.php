@@ -85,9 +85,10 @@
               <img src="./assets/images/teacher.png" alt="">
               <div class="details">
                 <p>Name: <span><?php echo $name ?></span></p>
-                <p>Teacher<span><?php echo $rows['department'] ?></span></p>
+                <p>Teacher<span></span></p>
+                <p>ID: <span><?php echo $rows['ID'] ?></span></p>
                 <hr>
-                <p>Department: <span></span></p>
+                <p>Department: <span><?php echo $rows['department'] ?></span></p>
                 <hr>
               </div>
               <?php }else{
