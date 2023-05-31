@@ -157,7 +157,7 @@ table{
 }
 .booked {
   
-    background-color: rgb(255, 109, 109); /* Set the desired background color for not booked cells */
+    background-color: rgb(186, 10, 10); /* Set the desired background color for not booked cells */
     color: black; /* Set the desired text color for not booked cells */
   
   }
@@ -173,6 +173,7 @@ table{
     text-align: center;
     border: 1px solid black;
     padding: 0; /* Remove any default padding */
+    border-radius: 20px;
   }
   
   .row {
