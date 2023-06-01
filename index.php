@@ -1,3 +1,26 @@
+<?php
+  require 'config.php';
+  $currentDay = date("l");
+  $currentTime = date("H:i");
+
+  if($currentDay === "Monday" && $currentTime>"00:00" &&$currentTime<"00:15") {
+    // Perform your desired actions for Sunday at midnight
+    $dlt="DELETE FROM booked WHERE booking_ID IN (SELECT booking_ID FROM booking_request)";
+    $check2=mysqli_query($conn, $dlt);
+  }else {
+    // Perform actions for other days or times
+    // echo "It is not Sunday at midnight.";
+  }
+  session_start();
+  if(!empty($_SESSION["ID"])){
+      $check=false; 
+      $ID=$_SESSION["ID"];
+   
+  }
+  else{
+      $check=true;
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +47,8 @@
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -53,19 +78,17 @@
             </li>
 
             <li class="nav-item">
-              <a href="#features" class="nav-link">About Us</a>
+              <a href="#hero1" class="nav-link">Review</a>
             </li>
-
-
 
             <li class="nav-item">
               <a href="#about" class="nav-link">Features</a>
             </li>
 
-         
+<!--          
             <li class="nav-item">
-              <a href="login.html" class="nav-link">Sign in</a>
-            </li>
+              <a href="login.php" class="nav-link">Sign in</a>
+            </li> -->
 
             <li class="nav-item">
               <a href="contact.html" class="nav-link">Contact</a>
@@ -104,18 +127,24 @@
             </p>
 
             
+          <?php if($check){ ?>
+            <a href="loginT.php"> <button class="btn btn-primary" >Get Started as Teacher</button></a>
 
-            <a href="loginT.html"> <button class="btn btn-primary" >Get Started as Teacher</button></a>
+            <a href="loginS.php"> <button class="btn btn-primary" >Get Started as Student</button></a>
 
-            <a href="loginS.html"> <button class="btn btn-primary" >Get Started as Student</button></a>
-
-
+          <?php } else{
+            if($_SESSION["type"]==='S'){?>
+            <a href="profileS.php"> <button class="btn btn-primary" >Go TO PROFILE</button></a>
+          <?php }
+          else if($_SESSION["type"]==='T'){?>
+          <a href="profileT.php"> <button class="btn btn-primary" >Go TO PROFILE</button></a>
+          <?php }} ?>
           </div>
 
          
 
           <div class="hero-banner">
-            <img src="Classroom.png" alt="shape" class="shape-content">
+            <img id="gif-image" src="./assets/images/Classroom.gif" alt="shape" class="shape-content">
           </div>
 
         </div>
@@ -174,27 +203,23 @@
 
               <li>
                 <div class="about-card">
-
                   <div class="card-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/128/5828/5828065.png" alt="shape" >
-                    
-
+                    <img src="https://cdn-icons-png.flaticon.com/128/6051/6051683.png" alt="shape" >
                   </div>
-
                   <h3 class="h3 card-title">Easy to use</h3>
-
                   <p class="card-text">
                     The interface has been designed to make sure room availability status is clear and understandable at a glance.
                   </p>
-
                 </div>
               </li>
 
+
+              
               <li>
                 <div class="about-card">
 
                   <div class="card-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/128/1161/1161388.png" alt="shape" >
+                    <img src="https://cdn-icons-png.flaticon.com/128/6373/6373999.png" alt="shape" >
                     
 
                   </div>
@@ -213,7 +238,7 @@
                 <div class="about-card">
 
                   <div class="card-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/128/870/870169.png" alt="shape" >
+                    <img src="https://cdn-icons-png.flaticon.com/128/5212/5212389.png" alt="shape" >
                     
 
                   </div>
@@ -232,11 +257,10 @@
                 <div class="about-card">
 
                   <div class="card-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/128/1048/1048953.png" alt="shape" >
+                    <img src="https://cdn-icons-png.flaticon.com/128/6241/6241506.png" alt="shape" >
                     
 
                   </div>
-
                   <h3 class="h3 card-title">Runs on your schedule</h3>
 
                   <p class="card-text">
@@ -249,7 +273,7 @@
                 <div class="about-card">
 
                   <div class="card-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/128/10108/10108226.png" alt="shape" >
+                    <img src="https://cdn-icons-png.flaticon.com/128/4823/4823813.png" alt="shape" >
                     
 
                   </div>
@@ -266,7 +290,7 @@
                 <div class="about-card">
 
                   <div class="card-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/128/1066/1066631.png" alt="shape" >
+                    <img src="https://cdn-icons-png.flaticon.com/128/4823/4823620.png" alt="shape" >
                     
   </div>
 
@@ -287,6 +311,77 @@
       </section>
 
 
+      <section class="hero1" id="hero1">
+        <div class="hero1">
+          <h1>
+              Reviews
+            </h1>
+            <div class="container1">
+              <div class="indicator1">
+                  <span class="btn1 active"></span>
+                  <span class="btn1"></span>
+                  <span class="btn1"></span>
+                  <span class="btn1"></span>
+              </div>
+              <div class="testimonial1">
+              <div class="slide-row1" id="slide">
+                  <div class="slide-col1">
+                    <div class="user-text1">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, unde dolores ex harum mollitia incidunt dicta, esse omnis praesentium dolorem asperiores illum nesciunt autem facilis veniam porro officiis accusantium vero.</p>
+                        <h3>Sarah</h3>
+                    <p>Zara Inc.</p>
+                  </div>
+                    <div class="user-img1">
+                      <img src="./assets/images/user-2.jpg" alt="">
+        
+                    </div>
+                  </div>
+        
+                  <div class="slide-col1">
+                    <div class="user-text1">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, unde dolores ex harum mollitia incidunt dicta, esse omnis praesentium dolorem asperiores illum nesciunt autem facilis veniam porro officiis accusantium vero.</p>
+                        <h3>Sarah</h3>
+                    <p>Zara Inc.</p>
+                  </div>
+                    <div class="user-img1">
+                      <img src="./assets/images/user-3.jpg" alt="">
+        
+                    </div>
+                  </div>
+        
+                  <div class="slide-col1">
+                    <div class="user-text1">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, unde dolores ex harum mollitia incidunt dicta, esse omnis praesentium dolorem asperiores illum nesciunt autem facilis veniam porro officiis accusantium vero.</p>
+                        <h3>Sarah</h3>
+                    <p>Zara Inc.</p>
+                  </div>
+                    <div class="user-img1">
+                      <img src="./assets/images/user-4.jpg" alt="">
+        
+                    </div>
+                  </div>
+        
+                  <div class="slide-col1">
+                    <div class="user-text1">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, unde dolores ex harum mollitia incidunt dicta, esse omnis praesentium dolorem asperiores illum nesciunt autem facilis veniam porro officiis accusantium vero.</p>
+                        <h3>Sarah</h3>
+                    <p>Zara Inc.</p>
+                  </div>
+                    <div class="user-img1">
+                      <img src="./assets/images/user-5.jpg" alt="">
+        
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      
+      
+      </section>
+
+
+
 
 
 
@@ -295,7 +390,6 @@
     </article>
 
   </main>
-
 
 
 
@@ -313,17 +407,17 @@
           <p class="footer-text">Follow us on</p>
           <ul class="social-list">
             <li>
-              <a href="https://github.com/codewithsadee" class="social-link">
+              <a href="https://github.com" class="social-link">
                 <ion-icon name="logo-github"></ion-icon>
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/codewithsadee" class="social-link">
+              <a href="https://instagram.com" class="social-link">
                 <ion-icon name="logo-instagram"></ion-icon>
               </a>
             </li>
             <li>
-              <a href="https://youtube.com/c/codewithsadee" class="social-link">
+              <a href="https://youtube.com" class="social-link">
                 <ion-icon name="logo-youtube"></ion-icon>
               </a>
             </li>
@@ -340,13 +434,16 @@
               <h3 class="h4 link-title">Company</h3>
             </li>
             <li>
-              <a href="#" class="footer-link">About Us</a>
+              <a href="#features" class="footer-link">About Us</a>
             </li>
             <li>
-              <a href="#" class="footer-link">Features</a>
+              <a href="#about" class="footer-link">Features</a>
             </li>
           </ul>
           <ul class="footer-link-list">
+            <li>
+              <h3 class="h4 link-title">Contact</h3>
+            </li>
             <li>
               <a href="#" class="footer-link">Help Center</a>
             </li>
@@ -384,7 +481,7 @@
 
     <div class="footer-bottom">
       <p class="copyright">
-        &copy; 2022 <a href="#">@BS3</a> All right reserved
+        &copy; 2023 <a href="#">@BS3</a> All right reserved
       </p>
     </div>
 
@@ -416,6 +513,7 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 
 </body>
 

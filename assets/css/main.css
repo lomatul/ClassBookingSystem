@@ -1,7 +1,8 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Acme', sans-serif;
+    font-size: 15px;
    
   
 }
@@ -102,10 +103,27 @@ body{
     font-weight: 100px;
 }
 
-
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .alert-failed {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
 
 .input-group{
-    top: 180px;
+    top: 120px;
     position: absolute;
     width: 280px;
     transition: .5s;
