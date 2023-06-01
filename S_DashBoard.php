@@ -22,7 +22,7 @@ if (isset($_POST['search'])) {
     
 }
 
-$sql2 = "SELECT * FROM booking_request br,booking b WHERE br.booking_ID = b.booking_ID AND br.cr_ID = '$ID' ORDER BY req_ID DESC LIMIT 3";
+$sql2 = "SELECT * FROM booking_request br,booking b WHERE br.booking_ID = b.booking_ID AND br.cr_ID = '$ID' ORDER BY req_ID DESC LIMIT 5";
 $result2=mysqli_query($conn, $sql2);
 
 ?>
@@ -97,7 +97,7 @@ $result2=mysqli_query($conn, $sql2);
 
     <main class="table">
         <section class="table__header">
-            <h1>Pending Request's</h1>
+            <h1>Your DashBoard</h1>
             <div class="input-group">
                 <input type="search" placeholder="Search Data...">
                 <img src="./assets/images/search.png" alt="">

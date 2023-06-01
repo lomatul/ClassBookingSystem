@@ -8,6 +8,8 @@
     box-sizing: border-box;
 }
 .hero{
+    font-family: 'Acme', sans-serif;
+    font-size: 15px;
     width: 100%;
     min-height: 100vh;
     background: rgb(86, 25, 25);
@@ -121,6 +123,8 @@ max-height: 400px;
 
 
 .container{
+    font-family: 'Acme', sans-serif;
+    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,7 +133,8 @@ max-height: 400px;
 }
 
 .box{
-
+    font-family: 'Acme', sans-serif;
+    font-size: 15px;
     width: 600px;
     height: 500px;
     padding: 20px;
@@ -143,6 +148,8 @@ max-height: 400px;
 }
 
 .box p{
+    font-family: 'Acme', sans-serif;
+    font-size: 15px;
     font-size: 20px;
     margin-bottom: 10px;
 }
@@ -163,12 +170,16 @@ max-height: 400px;
   }
 
   .details p {
+    font-family: 'Acme', sans-serif;
+    font-size: 25px;
     display: flex;
     align-items: center;
     margin: 0;
   }
   
   .details p span {
+    font-family: 'Acme', sans-serif;
+    font-size: 25px;
     margin-left: 10px;
   }  
 
