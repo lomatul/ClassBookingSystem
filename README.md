@@ -46,24 +46,27 @@ And we will implement the project with the help of RDBMS
      for that particular classroom at a particular date
  
  ```
- 
+ ![image](https://github.com/lomatul/ClassBookingSystem/assets/90206489/17df5785-9e4a-415f-b591-9d73d7bdcb9f)
+
  ```
  2. VIEW: 
      * Users can view all the classrooms within the institution and check which classrooms
      are free and which are booked
  ```
- 
+![image](https://github.com/lomatul/ClassBookingSystem/assets/90206489/a9607f42-291f-43dc-b815-abbf04d22911)
+
  
  ```
  3. REQUEST
      * CRs can send a request to booK a free classroom for a specific time slot at a certain date.
  ```
  
- 
+![image](https://github.com/lomatul/ClassBookingSystem/assets/90206489/f42879da-4bd2-4397-bbea-fe2334b57c49)
  ```
  4. APROVAL
      *Teachers can approve the request for booking a classroom by a CR for their respective class
  ```
+![image](https://github.com/lomatul/ClassBookingSystem/assets/90206489/f2a2bfbb-536f-4898-ac94-dce41a1a3931)
 
 
 
