@@ -1,6 +1,6 @@
 # COURSE TITLE: DATABASE MANAGEMENT SYSTEM LAB-II :computer:
 # COURSE CODE: CSE 4410
-## PROJECT TITLE: CLASSBOOKING SYSTEM 
+## PROJECT TITLE: CLASSBOOKING SYSTEM  :man_teacher:
 
 ## Current Phase :
 ```
@@ -26,27 +26,31 @@ DONE
 
 
 
-##  :ear_of_rice: Brief Overview : 
+##  :bookmark_tabs: Brief Overview : 
 ```
 This is a Classroom Booking System.
-As we all know, we have to shift our classes or have to allocate room for quizzes. But it isn't easy to find the free classrooms. So we are making a system where users can view all the classrooms within the institution and check which classrooms are free and which are booked.
-This is the main objective of our project. And we will implement the project with the help of RDBMS
+As we all know, we have to shift our classes or have to allocate room for quizzes. But it isn't easy to find 
+the free classrooms. So we are making a system where users can view all the classrooms within the institution 
+and check which classrooms are free and which are booked.This is the main objective of our project. 
+And we will implement the project with the help of RDBMS
  ```
 
 ![image](https://github.com/lomatul/AgriGo/assets/90206489/1709c577-2316-440d-8fc5-6d7099d29f80)
 
 
 
- ##  :cherries: CORE FEATURES : 
+ ##  :sparkles: CORE FEATURES : 
  ```
  1. SEARCH
-     * Users can also look for a specific classroom and see all the schedules for that particular classroom at a particular date
+     * Users can also look for a specific classroom and see all the schedules
+     for that particular classroom at a particular date
  
  ```
  
  ```
  2. VIEW: 
-     * Users can view all the classrooms within the institution and check which classrooms are free and which are booked
+     * Users can view all the classrooms within the institution and check which classrooms
+     are free and which are booked
  ```
  
  
